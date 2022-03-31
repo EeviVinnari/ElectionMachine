@@ -12,6 +12,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import app.ShowCandidates;
+import app.data.Game;
+
 
 public class Dao {
 	private Connection conn;
@@ -32,6 +35,41 @@ public class Dao {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	
+	public ArrayList<ShowCandidates> readAllShowCandidates() {
+		ArrayList<ShowCandidates> list=new ArrayList<>();
+		Statement stmt=null;
+		int count=0;
+		try {
+			stmt = conn.createStatement();
+			ResultSet rs=stmt.executeQuery("select * from vaalikone");
+			while (rs.next()) {
+				ShowCandidates ShowCandidates=new ShowCandidates();
+				ShowCandidates.setId(rs.getInt("id"));
+				ShowCandidates.setEtunimi(rs.getString("etunimi"));
+				ShowCandidates.setSukunimi(rs.getFloat("sukunimi"));
+				list.add(ShowCandidates);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public void addUser(String username, String pw, String salt) {
 		String sql = "insert into useraccount (username, hashedpassword,salt) values (?,?,?)";
