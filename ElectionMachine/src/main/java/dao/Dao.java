@@ -13,7 +13,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import app.ShowCandidates;
-import app.data.Game;
+
+import app.model.Vaalikone;
+
 
 
 public class Dao {
@@ -38,19 +40,33 @@ public class Dao {
 	
 	
 	
-	public ArrayList<ShowCandidates> readAllShowCandidates() {
-		ArrayList<ShowCandidates> list=new ArrayList<>();
+	
+	public int saveVaalikone(Vaalikone vaalikone) {
 		Statement stmt=null;
 		int count=0;
 		try {
 			stmt = conn.createStatement();
-			ResultSet rs=stmt.executeQuery("select * from vaalikone");
+			count=stmt.executeUpdate("insert into ehdokkaat(sukunimi, etunimi) values('"+vaalikone.getSukunimi()+"', "+vaalikone.getEtunimi()+")");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return count;
+	}
+	
+	public ArrayList<Vaalikone> readAllVaalikone() {
+		ArrayList<Vaalikone> list=new ArrayList<>();
+		Statement stmt=null;
+		int count=0;
+		try {
+			stmt = conn.createStatement();
+			ResultSet rs=stmt.executeQuery("select * from ehdokkaat");
 			while (rs.next()) {
-				ShowCandidates ShowCandidates=new ShowCandidates();
-				ShowCandidates.setId(rs.getInt("id"));
-				ShowCandidates.setEtunimi(rs.getString("etunimi"));
-				ShowCandidates.setSukunimi(rs.getFloat("sukunimi"));
-				list.add(ShowCandidates);
+				Vaalikone vaalikone=new Vaalikone();
+				vaalikone.setEhdokas_Id(rs.getInt("ehdokas_id"));
+				vaalikone.setSukunimi(rs.getString("sukunimi"));
+				vaalikone.setEtunimi(rs.getString("etunimi"));
+				list.add(vaalikone);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -58,6 +74,51 @@ public class Dao {
 		}
 		return list;
 	}
+	
+	public int updateVaalikone(Vaalikone vaalikone) {
+		int count = 0;
+		String sql = "update ehdokkaat set sukunimi = ?, etunimi = ? where ehdokas_id = ?";
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			
+			stmt.setString(1, vaalikone.getSukunimi());
+			stmt.setString(2, vaalikone.getEtunimi());
+			
+			stmt.setInt(3, vaalikone.getEhdokas_id());
+			
+			count = stmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return count;
+	}
+	
+	public Vaalikone getVaalikoneInfo(int ehdokas_id) {
+		Vaalikone result = null;
+		String sql = "select * from ehdokkaat where ehdokas_id = ?";
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+						
+			stmt.setInt(1, ehdokas_id);
+			
+			ResultSet resultset = stmt.executeQuery();
+			
+			if (resultset.next()) {
+				result = new Vaalikone();
+				result.setEhdokas_Id(resultset.getInt("ehdokas_id"));
+				result.setSukunimi(resultset.getString("sukunimi"));
+				result.setEtunimi(resultset.getString("etunimi"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	
+	
 	
 	
 	
@@ -127,6 +188,9 @@ public class Dao {
 			}
 		return result;
 		}
+	
+	
+
 	}
 	
 	
