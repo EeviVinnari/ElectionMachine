@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.Dao;
+
 @WebServlet(
     name = "HelloAppEngine",
     urlPatterns = {"/hello"}
@@ -24,10 +26,10 @@ public class HelloAppEngine extends HttpServlet {
     
     //TESTII
 
-    //Eevi wrote this line
 
-
-    //Sofia wrote this line
+    Dao dao = new Dao();
+    dao.close();
+ 
 
   }
 }
