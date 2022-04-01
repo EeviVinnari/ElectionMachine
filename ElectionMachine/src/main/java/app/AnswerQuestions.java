@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import app.model.Vaalikone;
+import app.model.Kysymykset;
 import dao.Dao;
 
 @WebServlet(
@@ -36,9 +36,9 @@ String idValue = request.getParameter("id");
 				int id = Integer.parseInt(idValue);
 				
 				Dao dao = new Dao();
-				Vaalikone vaalikone = dao.getVaalikoneInfo(id);
+				Kysymykset kysymykset = dao.getVaalikoneInfo(id);
 				
-				session.setAttribute("id", vaalikone);
+				session.setAttribute("allkysymykset", kysymykset);
 				
 				RequestDispatcher rd = request.getRequestDispatcher("jsp/html/AnswerQuestions.jsp");
 				rd.forward(request, response);
