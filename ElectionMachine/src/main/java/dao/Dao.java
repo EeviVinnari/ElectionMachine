@@ -31,65 +31,65 @@ public class Dao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}}
+	}
 	
-//	public void addUser(String username, String pw, String salt) {
-	//	String sql = "insert into useraccount (username, hashedpassword,salt) values (?,?,?)";
-	//	try {
-		//	PreparedStatement stmt = conn.prepareStatement(sql);
+	public void addUser(String username, String pw, String salt) {
+		String sql = "insert into useraccount (username, hashedpassword,salt) values (?,?,?)";
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
 			
-		//	stmt.setString(1, username);
-		//	stmt.setString(2, pw);
-		//	stmt.setString(3, salt);
+			stmt.setString(1, username);
+			stmt.setString(2, pw);
+			stmt.setString(3, salt);
 			
-		//	stmt.executeUpdate();
-		//} catch (SQLException e) {
+			stmt.executeUpdate();
+		} catch (SQLException e) {
 			
-		//	e.printStackTrace();
+			e.printStackTrace();
 	
-		//}
-	//}
+		}
+	}
 	
-//	public String getUserSalt(String username) {
-	//	String result = "";
-	//	String sql = "select salt from useraccount where username = ?";
-	//	try {
-	//		PreparedStatement stmt = conn.prepareStatement(sql);
+	public String getUserSalt(String username) {
+		String result = "";
+		String sql = "select salt from useraccount where username = ?";
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
 			
-	//		stmt.setString(1,  username);
+			stmt.setString(1,  username);
 			
-	//		ResultSet rs = stmt.executeQuery();
+			ResultSet rs = stmt.executeQuery();
 			
-	//		if ( rs.next()) {
-	//			result = rs.getString("salt");
-	//		}
-	//	} catch (SQLException e) {
+			if ( rs.next()) {
+				result = rs.getString("salt");
+			}
+		} catch (SQLException e) {
 			
-	//		e.printStackTrace();
-	//		}
-	//	return result;
-	//	}
+			e.printStackTrace();
+			}
+		return result;
+		}
 	
-//	public String getUserPasswordHash(String username) {
-//		String result = "";
-//		String sql = "select hashedpassword from useraccount where username = ?";
-//		try { 
-	//		PreparedStatement stmt = conn.prepareStatement(sql);
+	public String getUserPasswordHash(String username) {
+		String result = "";
+		String sql = "select hashedpassword from useraccount where username = ?";
+		try { 
+			PreparedStatement stmt = conn.prepareStatement(sql);
 			
-//			stmt.setString(1, username);
+			stmt.setString(1, username);
 			
-//			ResultSet rs = stmt.executeQuery();
+			ResultSet rs = stmt.executeQuery();
 			
-//			if (rs.next()) {
-//				result = rs.getString("hashedpassword");
-	//		}
-		//} catch (SQLException e) {
+			if (rs.next()) {
+			result = rs.getString("hashedpassword");
+			}
+		} catch (SQLException e) {
 			
-		//	e.printStackTrace();
-		//	}
-		//return result;
-		//}
-//	}
+			e.printStackTrace();
+			}
+		return result;
+		}
+	}
 	
 	
 
