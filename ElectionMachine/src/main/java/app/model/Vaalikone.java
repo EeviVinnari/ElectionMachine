@@ -18,7 +18,7 @@ public class Vaalikone implements Serializable{
 	private String kotipaikkakunta;
 	private int ika;
 	private String miksi_eduskuntaan;
-	private String mita_asioita_haluat_edustaa;
+	private String mita_asioita_haluat_edistaa;
 	private String ammatti;
 
 
@@ -28,12 +28,7 @@ public class Vaalikone implements Serializable{
 	public void setEhdokas_Id(int ehdokas_id) {
 		this.ehdokas_id = ehdokas_id;
 	}
-	public String getEtunimi() {
-		return etunimi;
-	}
-	public void setEtunimi(String etunimi) {
-		this.etunimi = etunimi;
-	}
+	
 	public String getSukunimi() {
 		return etunimi;
 	}
@@ -41,30 +36,65 @@ public class Vaalikone implements Serializable{
 		this.sukunimi = sukunimi;
 	}
 	
+	public String getEtunimi() {
+		return etunimi;
+	}
+	public void setEtunimi(String etunimi) {
+		this.etunimi = etunimi;
+	}
+	public String getPuolue() {
+		return puolue;
+	}
+	public void setPuolue(String puolue) {
+		this.puolue = puolue;
+	}
+
+	public String getKotipaikkakunta() {
+		return kotipaikkakunta;
+	}
+	public void setKotipaikkakunta(String kotipaikkakunta) {
+		this.kotipaikkakunta = kotipaikkakunta;
+	}
+
+	public int getIka() {
+		return ika;
+	}
+	public void setIka(int ika) {
+		this.ika = ika;
+	}
+
+	public String getMiksi_eduskuntaan() {
+		return miksi_eduskuntaan;
+	}
+	public void setMiksi_eduskuntaan(String miksi_eduskuntaan) {
+		this.miksi_eduskuntaan = miksi_eduskuntaan;
+	}
+
+	public String getMita_asioita_haluat_edistaa() {
+		return mita_asioita_haluat_edistaa;
+	}
+	public void setMita_asioita_haluat_edistaa(String mita_asioita_haluat_edistaa) {
+		this.mita_asioita_haluat_edistaa = mita_asioita_haluat_edistaa;
+	}
+
+	public String getAmmatti() {
+		return ammatti;
+	}
+	public void setAmmatti(String ammatti) {
+		this.ammatti = ammatti;
+	}
+
+	
+
+
+	
 	public String toString() {
-		return ehdokas_id+" "+sukunimi+" "+etunimi;
+		return ehdokas_id+" "+sukunimi+" "+etunimi+" "+puolue+" "+kotipaikkakunta+" "+ika+
+				" "+miksi_eduskuntaan+" "+mita_asioita_haluat_edistaa+" "+ammatti;
 	}
 	
 	
 	
-	/*
-	
-	public float getWeight() {
-		return weight;
-	}
-	public void setWeight(float weight) {
-		this.weight = weight;
-	}
-	public void setWeight(String s) {
-		try {
-			this.weight=Float.parseFloat(s);
-		}
-		catch(NumberFormatException e) {
-			this.weight=0;
-		}
-	}
-	public String toString() {
-		return id+" "+breed+" ("+weight+")";
-	}*/
+
 }
 
