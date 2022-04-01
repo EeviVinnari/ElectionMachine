@@ -30,7 +30,7 @@
 	<th>Ammatti</th>
 </tr>
 
-<c:forEach var="vaalikone" items="${sessionScope.allvaalikone }">
+<c:forEach var="id" items="${sessionScope.vaalikone }">
 
 	<tr>
 		<td>${ehdokkaat.ehdokas_id }</td>
@@ -44,7 +44,7 @@
 		<td>${ehdokkaat.ammatti }</td>
 		
 		<td>
-			<a href="/editgame?id=${game.id }">Edit</a>
+			<a href="/answerquestions?id=${vaalikone.id }">Edit</a>
 		</td>
 	</tr>
 </c:forEach>
