@@ -36,9 +36,9 @@ String idValue = request.getParameter("id");
 				int id = Integer.parseInt(idValue);
 				
 				Dao dao = new Dao();
-				Kysymykset kysymykset = dao.getVaalikoneInfo(id);
+				Kysymykset kysymys = dao.getKysymyksetInfo(id);
 				
-				session.setAttribute("allkysymykset", kysymykset);
+				session.setAttribute("allkysymykset", kysymys);
 				
 				RequestDispatcher rd = request.getRequestDispatcher("jsp/html/AnswerQuestions.jsp");
 				rd.forward(request, response);
