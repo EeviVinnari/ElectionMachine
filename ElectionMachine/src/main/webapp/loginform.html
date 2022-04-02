@@ -3,24 +3,93 @@
   <head>
     <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
 <title>Insert title here</title>
+
+<style>
+
+body  
+{  
+    margin: 0;  
+    padding: 0;  
+    background-color:lightgray;    
+}  
+.login{  
+        width: 382px;  
+        overflow: hidden;  
+        margin: auto;  
+        margin: 20 0 0 450px;  
+        padding: 80px;  
+        background: darkgrey;  
+        border-radius: 15px ;  
+          
+}  
+h1{
+	text-align: center;  
+    color: black;  
+    padding: 20px;  
+}
+h2{  
+    text-align: center;  
+    color: black;  
+    padding: 20px;  
+}  
+label{  
+    color: black;  
+    font-size: 17px;  
+}  
+#Username{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+}  
+#Password{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+      
+}  
+#send{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 17px;  
+    padding-left: 7px;  
+    color: blue;  
+  
+  
+}  
+
+</style>
 </head>
 <body>
 <h1>Salasanan tarkistus</h1>
-<h3>Kirjaudu sisään</h3>
+
+<div class="login">
+<h2>Kirjaudu sisään</h2>
 <form action="/check" method="post">
+<label><b>User Name</b></label> 
 <input type="text" name="username" value="">
+</br>
+<label><b>Password</b></label> 
 <input type="password" name="password" value="">
 
 <input type="submit" name="send" value="Check">
 </form>
 
-<h3>Luo käyttäjänimi ja salasana</h3>
+<h2>Luo käyttäjänimi ja salasana</h2>
 <form action="/add" method="post">
+<label><b>User Name</b></label> 
 <input type="text" name="username" value="">
+</br>
+<label><b>Password</b></label> 
 <input type="password" name="password" value="">
 
 <input type="submit" name="send" value="Add">
 </form>
+</div>
 
 </body>
 </html>
