@@ -2,23 +2,49 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+    <link rel="stylesheet" href="style.css">
+    
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+</script>
+<script> 
+$(function(){
+  $("#header").load("header.html"); 
+  $("#footer").load("footer.html"); 
+});
+</script> 
+
+
     <title>Hello App Engine</title>
   </head>
 
   <body>
+    <div id="header"></div>
+
+
+
     <h1>Election Machine</h1>
 
-    <table>
+    <table class="blue">
       <tr>
         <td colspan="2" style="font-weight:bold;">Available Servlets:</td>        
       </tr>
       <tr>
         <td><a href='/hello'>The servlet</a></td>
      
+
         <td><a href='/jsp/html/showcandidates.jsp'>Ehdokkaat</a></td>
         
          <td><a href='/loginform.html'>Kirjaudu sisään</a></td>
+
+        <td><a href='/showcandidates'>Ehdokkaat</a></td>
+
       </tr>
     </table>
+    
+    
+    <div id="footer"></div>
   </body>
 </html>
