@@ -43,7 +43,6 @@ public class ShowCandidates extends HttpServlet {
 			throws IOException, ServletException {
 		doGet(request, response);
 	}
-
 }
 
 	
