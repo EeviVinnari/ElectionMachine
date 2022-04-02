@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="app.model.Vaalikone" %>
+<%@ page import="app.model.Kysymykset" %>
 
 
 <!DOCTYPE html>
@@ -17,12 +17,32 @@
 </head>
 <body>
 
-<form action='./showcandidates' method='post'>
-		Q1: <input type='text' name='ika' value='${sessionScope.vaalikone.ika }'><br>
-		Q2: <input type='text' name='etunimi' value='${sessionScope.game.etunimi }'><br>
-		<input type="hidden" name="id" value="${sessionScope.vaalikone.ehdokas_id }">		
-		<input type='submit' name='ok' value='Edit'>
-	</form>
+<form method="post" action="./answerquestions">  
+     
+    <h1>${sessionScope.kysymykset.kysymys }</h1>  
+    <input type="radio" name="favorite_pet" value="Cats" value='${sessionScope.kysymykset.kysymys }'><br>  
+   
+    <input type="radio" name="favorite_pet" value="Dogs" onclick="return ValidatePetSelection();">Dogs<br>  
+    <input type="radio" name="favorite_pet" value="Birds" onclick="return ValidatePetSelection();">Birds<br>  
+        <br>  
+    <input type="submit" value="Submit now">  
+    
+</form>  
+
+
+<table>
+<c:forEach var="id" items="${sessionScope.kysymys }">
+
+	<tr>
+		<td>${kysymykset.kysymys}</td>
+		
+		
+		<td>
+			<a href="/answerquestions?id=${kysymykset.id }">Edit</a>
+		</td>
+	</tr>
+</c:forEach>
+</table>
 
 </body>
 </html>

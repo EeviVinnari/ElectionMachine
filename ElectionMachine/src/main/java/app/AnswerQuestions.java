@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import app.model.Kysymykset;
+import app.model.Vaalikone;
 import dao.Dao;
 
 @WebServlet(
@@ -36,11 +37,11 @@ String idValue = request.getParameter("id");
 				int id = Integer.parseInt(idValue);
 				
 				Dao dao = new Dao();
-				Kysymykset kysymys = dao.getKysymyksetInfo(id);
+				ArrayList<Kysymykset> kysymys = dao.readAllKysymykset();
 				
 				session.setAttribute("allkysymykset", kysymys);
 				
-				RequestDispatcher rd = request.getRequestDispatcher("jsp/html/AnswerQuestions.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("jsp/html/answerquestions.jsp");
 				rd.forward(request, response);
 				
 			} catch (Exception e) {
