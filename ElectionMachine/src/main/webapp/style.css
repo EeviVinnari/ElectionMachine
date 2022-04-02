@@ -2,7 +2,7 @@
 
 body
 {
-background-color:lightgrey;
+background-color:grey;
 }
 h1
 {
@@ -11,4 +11,10 @@ text-align:center;
 .blue {
   max-width: 500px;
   margin: auto;
+}
+footer{
+	background-color: white;
+}
+header{
+	background-color: white;
 }
