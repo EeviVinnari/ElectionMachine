@@ -23,7 +23,7 @@ public class Dao {
 	public Dao() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			conn=java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/gamedb", "pena", "kukkuu");
+			conn=java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/vaalikone", "pena", "kukkuu");
 		} catch (SQLException | InstantiationException | IllegalAccessException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
