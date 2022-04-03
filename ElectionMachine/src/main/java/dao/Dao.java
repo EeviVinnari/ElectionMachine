@@ -215,24 +215,60 @@ public class Dao {
 		return result;
 		}
 	
+	
+	
+	public int saveKysymykset(Kysymykset kysymykset) {
+		Statement stmt=null;
+		int count=0;
+		try {
+			stmt = conn.createStatement();
+			count=stmt.executeUpdate("insert into kysymykset(kysymys_id, kysymys)"
+					+ " values('"+kysymykset.getKysymys_id()+"', "+kysymykset.getKysymys()+"')");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return count;
+	}
+	
 	public ArrayList<Kysymykset> readAllKysymykset() {
 		ArrayList<Kysymykset> list=new ArrayList<>();
 		Statement stmt=null;
 		int count=0;
 		try {
 			stmt = conn.createStatement();
-			ResultSet rs=stmt.executeQuery("select * from kysymys");
+			ResultSet rs=stmt.executeQuery("select * from kysymykset");
 			while (rs.next()) {
-				Kysymykset kysymys=new Kysymykset();
-				kysymys.setKysymys_id(rs.getInt("kysymys_id"));
-				kysymys.setKysymys(rs.getString("kysymys"));
-				list.add(kysymys);
+				Kysymykset kysymykset=new Kysymykset();
+				kysymykset.setKysymys_id(rs.getInt("kysymys_id"));
+				kysymykset.setKysymys(rs.getString("kysymys"));
+				list.add(kysymykset);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return list;
+	}
+	
+	public int updateKysymykset(Kysymykset kysymykset) {
+		int count = 0;
+		String sql = "update kysymykset set kysymys_id = ?, kysymys = ?";
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			
+			stmt.setString(1, kysymykset.getKysymys());
+			
+			
+			stmt.setInt(2, kysymykset.getKysymys_id());
+		
+			
+			count = stmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return count;
 	}
 	
 	

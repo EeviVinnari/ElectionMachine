@@ -22,7 +22,7 @@
 	
 </tr>
 
-<c:forEach var="id" items="${sessionScope.kysymys }">
+<c:forEach var="kysymykset" items="${sessionScope.allkysymykset }">
 
 	<tr>
 		<td>${kysymykset.kysymys_id}</td>

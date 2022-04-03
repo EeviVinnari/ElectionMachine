@@ -31,9 +31,9 @@ public class AnswerQuestions extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		Dao dao = new Dao();
-		ArrayList<Kysymykset> kysymys = dao.readAllKysymykset();
+		ArrayList<Kysymykset> kysymykset = dao.readAllKysymykset();
 		
-		session.setAttribute("allkysymykset", kysymys);
+		session.setAttribute("allkysymykset", kysymykset);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("jsp/html/answerquestions.jsp");
 		rd.forward(request, response);
