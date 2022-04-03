@@ -33,19 +33,19 @@
 <c:forEach var="id" items="${sessionScope.vaalikone }">
 
 	<tr>
-		<td>${ehdokkaat.ehdokas_id }</td>
-		<td>${ehdokkaat.sukunimi }</td>
-		<td>${ehdokkaat.etunimi }</td>
-		<td>${ehdokkaat.puolue }</td>
-		<td>${ehdokkaat.kotipaikkakunta }</td>
-		<td>${ehdokkaat.ika }</td>
-		<td>${ehdokkaat.miksi_eduskuntaan }</td>
-		<td>${ehdokkaat.mita_asioita_haluat_edistaa }</td>
-		<td>${ehdokkaat.ammatti }</td>
+		<td>${vaalikone.ehdokas_id }</td>
+		<td>${vaalikone.sukunimi }</td>
+		<td>${vaalikone.etunimi }</td>
+		<td>${vaalikone.puolue }</td>
+		<td>${vaalikone.kotipaikkakunta }</td>
+		<td>${vaalikone.ika }</td>
+		<td>${vaalikone.miksi_eduskuntaan }</td>
+		<td>${vaalikone.mita_asioita_haluat_edistaa }</td>
+		<td>${vaalikone.ammatti }</td>
+
 		
 		<td>
-			<a href="/answerquestions?id=${vaalikone.id }">Edit</a>
-		</td>
+
 	</tr>
 </c:forEach>
 </table>
