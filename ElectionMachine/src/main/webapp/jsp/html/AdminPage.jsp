@@ -17,7 +17,7 @@
 		</td>
 		
 		<td>
-			<a href=" ">Muokkaa ehdokkaita</a>
+			<td><a href='/updatecandidate'>Muokkaa ehdokkaita</a></td>
 		</td>
 		
 		<td>
