@@ -44,9 +44,6 @@
 		<td>${vaalikone.ammatti }</td>
 
 		
-		<td>
-			<a href="/editgame?id=${vaalikone.ehdokas_id }">Edit</a>
-		</td>
 	</tr>
 </c:forEach>
 </table>
