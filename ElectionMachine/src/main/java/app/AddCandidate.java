@@ -70,7 +70,7 @@ public class AddCandidate extends HttpServlet {
 		dao.close();
 		
 
-		out.println("<br><a href='./jsp/html/adminpage.jsp'>Back to admin page</a>");
+		out.println("<br><a href='./jsp/html/AdminPage.jsp'>Back to admin page</a>");
 
 		/*
 		 * With a RequestDispatcher object is the htmlend.html file included to this servlet
