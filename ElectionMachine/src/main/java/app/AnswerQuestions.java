@@ -11,9 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import app.model.Kysymykset;
-import app.model.Vaalikone;
 import dao.Dao;
+import app.model.Kysymykset;
+
+
 
 @WebServlet(
 		 name = "AnswerQuestions",
@@ -23,42 +24,26 @@ import dao.Dao;
 public class AnswerQuestions extends HttpServlet {
 	
 	@Override
-	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) 
-	throws IOException, ServletException {
+			throws IOException, ServletException {
 		
 		// if sessions does not exist, create new one
 		HttpSession session = request.getSession();
 		
-String idValue = request.getParameter("id");
+		Dao dao = new Dao();
+		ArrayList<Kysymykset> kysymys = dao.readAllKysymykset();
 		
-		if ( idValue != null ) {
-			try {
-				int id = Integer.parseInt(idValue);
-				
-				Dao dao = new Dao();
-				ArrayList<Kysymykset> kysymys = dao.readAllKysymykset();
-				
-				session.setAttribute("allkysymykset", kysymys);
-				
-				RequestDispatcher rd = request.getRequestDispatcher("jsp/html/answerquestions.jsp");
-				rd.forward(request, response);
-				
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else {
-			// Back to list
-			response.sendRedirect("/hello");
-			
-		}
+		session.setAttribute("allkysymykset", kysymys);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("jsp/html/answerquestions.jsp");
+		rd.forward(request, response);
 	
 	}
 	
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws IOException, ServletException {
-	
-		
-	
-}}
+		doGet(request, response);
+	}
+
+}
