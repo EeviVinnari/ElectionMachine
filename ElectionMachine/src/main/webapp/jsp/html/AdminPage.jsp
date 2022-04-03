@@ -13,7 +13,9 @@
 <table>
 
 		<td>
-			<a href=" ">Lis‰‰ uusi ehdokas</a>
+			<a href='/addform.html'>Lis‰‰ uusi ehdokas</a>
+			<!-- '/jsp/html/addcandidate.jsp' -->
+			
 		</td>
 		
 		<td>
