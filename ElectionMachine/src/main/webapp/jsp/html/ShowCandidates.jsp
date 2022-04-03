@@ -30,7 +30,7 @@
 	<th>Ammatti</th>
 </tr>
 
-<c:forEach var="id" items="${sessionScope.vaalikone }">
+<c:forEach var="vaalikone" items="${sessionScope.allvaalikone }">
 
 	<tr>
 		<td>${vaalikone.ehdokas_id }</td>
@@ -44,12 +44,6 @@
 		<td>${vaalikone.ammatti }</td>
 
 		
-
-
-		<td>
-		
-			<a href="/showcandidates?id=${vaalikone.id }">Edit</a>
-			</td>
 
 	</tr>
 </c:forEach>
