@@ -22,35 +22,24 @@
 	<th>Ehdokas ID</th>
 	<th>Sukunimi</th>
 	<th>Etunimi</th>
-	<th>Puolue</th>
-	<th>Kotipaikkakunta</th>
-	<th>Ika</th>
-	<th>Miksi eduskuntaan</th>
-	<th>Mita asioita haluat edistaa</th>
-	<th>Ammatti</th>
+
 </tr>
 
-<c:forEach var="id" items="${sessionScope.vaalikone }">
+<c:forEach var="vaalikone" items="${sessionScope.allvaalikone }">
 
 	<tr>
 		<td>${vaalikone.ehdokas_id }</td>
 		<td>${vaalikone.sukunimi }</td>
 		<td>${vaalikone.etunimi }</td>
-		<td>${vaalikone.puolue }</td>
-		<td>${vaalikone.kotipaikkakunta }</td>
-		<td>${vaalikone.ika }</td>
-		<td>${vaalikone.miksi_eduskuntaan }</td>
-		<td>${vaalikone.mita_asioita_haluat_edistaa }</td>
-		<td>${vaalikone.ammatti }</td>
+
 
 		
-
-
 		<td>
-		
-			<a href="/showcandidates?id=${vaalikone.id }">Edit</a>
-			</td>
-
+			<a href="/editcandidate?ehdokas_id=${vaalikone.ehdokas_id }">Edit</a>
+		</td>
+		<td>
+			<a href="/removegame?id=${vaalikone.ehdokas_id }">Remove</a>
+		</td>
 	</tr>
 </c:forEach>
 </table>
