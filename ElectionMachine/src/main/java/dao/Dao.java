@@ -13,7 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import app.ShowCandidates;
-
+import app.model.Kysymykset;
 import app.model.Vaalikone;
 
 
@@ -140,6 +140,8 @@ public class Dao {
 		}
 		return result;
 	}
+	
+	
 
 	
 	
@@ -213,9 +215,62 @@ public class Dao {
 		return result;
 		}
 	
-	
-
+	public ArrayList<Kysymykset> readAllKysymykset() {
+		ArrayList<Kysymykset> list=new ArrayList<>();
+		Statement stmt=null;
+		int count=0;
+		try {
+			stmt = conn.createStatement();
+			ResultSet rs=stmt.executeQuery("select * from kysymys");
+			while (rs.next()) {
+				Kysymykset kysymys=new Kysymykset();
+				kysymys.setKysymys_id(rs.getInt("kysymys_id"));
+				kysymys.setKysymys(rs.getString("kysymys"));
+				list.add(kysymys);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
 	}
+	
+	
+	public ArrayList<Kysymykset> removeQuestion(String id) {
+		try {
+			String sql = "delete from kysymykset where kysymys_id=?";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.executeUpdate();
+			return readAllKysymykset();
+		}catch (SQLException e) {
+			return null;
+		}}
+	public Kysymykset getKysymyksetInfo(int kysymys_id) {
+		Kysymykset result = null;
+		String sql = "select * from kysymykset where kysymys_id = ?";
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+						
+			stmt.setInt(1, kysymys_id);
+			
+			ResultSet resultset = stmt.executeQuery();
+			
+			if (resultset.next()) {
+				result = new Kysymykset();
+				result.setKysymys_id(resultset.getInt("kysymys_id"));
+				result.setKysymys(resultset.getString("kysymys"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	
+		}
+		
 	
 	
 
