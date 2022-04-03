@@ -44,10 +44,13 @@
 		<td>${vaalikone.ammatti }</td>
 
 		
+
+
 		<td>
 		
 			<a href="/showcandidates?id=${vaalikone.id }">Edit</a>
 			</td>
+
 	</tr>
 </c:forEach>
 </table>
