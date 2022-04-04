@@ -7,7 +7,7 @@
 
     <style>
     body{
-    background-color: lightgray;
+    background-color: #B0C4DE;
     }
     footer{
     	text-align: center;
@@ -31,11 +31,13 @@
   	margin: auto;
 	}
     a {
-  background-color: black;
+  background-color: #4682b4;
   color: white;
-  padding: 5px;
+  padding: 20px;
   text-decoration: none;
-  font-size:20px;
+  font-size:25px;
+  display: inline;
+  font-family: "Times New Roman", Times, serif;
 }
 
 a:hover {
@@ -45,51 +47,47 @@ a:hover {
 a:active {
   background-color: black;
 }
-
-a:visited {
-  background-color: darkgrey;
+p {
+text-align: center;
+font-size: 20px;
+}
+h4 {
+font-family: "Times New Roman", Times, serif;
+font-size: 20px;
 }
 
 
     </style>
     
-<title>Insert title here</title>
+<title>Admin sivu</title>
 </head>
 <body>
 
   <header>
   
-  <h1>Election Machine - ADMIN </h1>
+  <h1>Vaalikone - ADMIN </h1>
   
   </header>
 
 </br>
 
+<p>Ehdokkaiden hallinta</p>
+
     <table class="blue">
 
       <tr>
-        <td><a href='/addform.html'>Lisää uusi ehdokas</a></td>
+
+      
+      <br>
+        <td><a href='/addform.html'>Uusi</a></td>
         <!-- '/jsp/html/addcandidate.jsp' -->
-        <td><a href='/updatecandidate'>Muokkaa ehdokkaita</a></td>
-        <td><a href=" ">Poista ehdokkaita</a></td>
-
-
-		<td>
-			<a href='/addform.html'>Lisää uusi ehdokas</a>
-			<!-- '/jsp/html/addcandidate.jsp' -->
-			
-		</td>
-		
-		<td>
-			<td><a href='/updatecandidate'>Muokkaa ehdokkaita</a></td>
-		</td>
-		
-		<td>
-			<a href='/updatecandidate'>Poista ehdokkaita</a>
-		</td>
+        <td><a href='/updatecandidate'>Muokkaa</a></td>
+        <td><a href=" ">Poista</a></td>
 
       </tr>
     </table>
+</br>
+
 
 </br>
 
