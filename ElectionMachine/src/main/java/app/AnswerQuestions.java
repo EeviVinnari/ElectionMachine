@@ -32,6 +32,7 @@ public class AnswerQuestions extends HttpServlet {
 		
 		Dao dao = new Dao();
 		ArrayList<Kysymykset> kysymykset = dao.readAllKysymykset();
+		System.out.println(kysymykset.size());
 		
 		session.setAttribute("allkysymykset", kysymykset);
 		
