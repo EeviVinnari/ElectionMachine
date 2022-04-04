@@ -55,6 +55,10 @@ h4 {
 font-family: "Times New Roman", Times, serif;
 font-size: 20px;
 }
+.green{
+  	max-width: 500px;
+  	margin: auto;
+}
 
 
     </style>
@@ -89,9 +93,16 @@ font-size: 20px;
 </br>
 
 
-</br>
+    <table class="green">
 
+      <tr>
+</br>
  <td><a href='/logoutservlet'>Kirjaudu ulos</a></td>
+ 
+       </tr>
+    </table>
+ </br>
+ </br>
 
 
     <footer>
