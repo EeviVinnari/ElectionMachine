@@ -9,41 +9,107 @@
     integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
     crossorigin="anonymous">
 </script>
-<script> 
-$(function(){
-  $("#header").load("header.html"); 
-  $("#footer").load("footer.html"); 
-});
-</script> 
+
 
 
     <title>Hello App Engine</title>
+    
+    
+    <style>
+    body{
+    background-color: #B0C4DE;
+    }
+    footer{
+    	text-align: center;
+    	position: static;
+    	background-color: white;
+    	bottom: 0%;
+    	width: 100%;
+    	padding: 10px;
+    }
+    header{
+    	text-align: center;
+    	position: static;
+    	background-color: white;
+    	bottom: 0%;
+    	width: 100%;
+    	padding: 3px;
+    }
+    .blue {
+  	max-width: 500px;
+  	margin: auto;
+	}
+    a {
+  background-color: #007791;
+  color: white;
+  padding: 20px;
+  text-decoration: none;
+  font-size:25px;
+  display: inline;
+  font-family: "Times New Roman", Times, serif;
+}
+
+a:hover {
+  background-color: #555;
+}
+
+a:active {
+  background-color: black;
+}
+
+
+img {
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 50%;
+}
+
+p {
+text-align: center;
+font-size: 20px;
+}
+
+h4 {
+font-family: "Times New Roman", Times, serif;
+font-size: 20px;
+}
+
+    </style>
   </head>
 
   <body>
-    <div id="header"></div>
-
-
-
-    <h1>Election Machine</h1>
+  
+  <header>
+  
+  <h1>Election Machine </h1>
+  
+  </header>
+   </br>
 
     <table class="blue">
-      <tr>
-        <td colspan="2" style="font-weight:bold;">Available Servlets:</td>        
-      </tr>
-      <tr>
-        <td><a href='/hello'>The servlet</a></td>
-        
-        <td><a href='/showcandidates'>Ehdokkaat</a></td>
-        
-        <td><a href='/loginform.html'>Kirjaudu sisään</a></td>
 
-        
+      <tr>
+
+      <br>
+        <td><a href='/hello'>Servlet</a></td>
+        <td><a href='/showcandidates'>Ehdokkaat</a></td>
+        <td><a href='/answerquestions'>Kysymykset</a></td>
+        <td><a href='/loginform.html'>Kirjaudu</a></td>
+
 
       </tr>
     </table>
     
+    </br>
+    <p>Tervetuloa vaalikoneeseen!</p>
+    <img src="https://s7d2.scene7.com/is/image/TWCNews/transparency_articlestoryimagepng">
     
-    <div id="footer"></div>
+    </br>
+    
+
+    <footer>
+    <h4>Sofian ja Eevin vaalikone</h4>
+    </footer>
   </body>
 </html>
