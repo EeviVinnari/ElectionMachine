@@ -23,7 +23,7 @@
 		</td>
 		
 		<td>
-			<a href=" ">Poista ehdokkaita</a>
+			<a href='/updatecandidate'>Poista ehdokkaita</a>
 		</td>
 
 </table>
