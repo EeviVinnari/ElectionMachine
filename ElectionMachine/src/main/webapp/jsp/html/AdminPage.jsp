@@ -95,6 +95,8 @@ a:visited {
 
  <td><a href='/logoutservlet'>Kirjaudu ulos</a></td>
 
+</br>
+</br>
 
     <footer>
     <h4>Sofian ja Eevin vaalikone</h4>
