@@ -68,10 +68,25 @@ a:visited {
     <table class="blue">
 
       <tr>
-        <td><a href='/addform.html'>Lis�� uusi ehdokas</a></td>
+        <td><a href='/addform.html'>Lisää uusi ehdokas</a></td>
         <!-- '/jsp/html/addcandidate.jsp' -->
         <td><a href='/updatecandidate'>Muokkaa ehdokkaita</a></td>
         <td><a href=" ">Poista ehdokkaita</a></td>
+
+
+		<td>
+			<a href='/addform.html'>Lisää uusi ehdokas</a>
+			<!-- '/jsp/html/addcandidate.jsp' -->
+			
+		</td>
+		
+		<td>
+			<td><a href='/updatecandidate'>Muokkaa ehdokkaita</a></td>
+		</td>
+		
+		<td>
+			<a href='/updatecandidate'>Poista ehdokkaita</a>
+		</td>
 
       </tr>
     </table>
