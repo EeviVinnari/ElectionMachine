@@ -15,6 +15,7 @@
 <meta charset="ISO-8859-1">
 <title>Ehdokkaat</title>
 
+
 <style>
 body{
 background-color: #B0C4DE;
