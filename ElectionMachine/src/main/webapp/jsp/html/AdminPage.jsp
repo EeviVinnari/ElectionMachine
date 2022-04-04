@@ -91,6 +91,9 @@ font-size: 20px;
 
 </br>
 
+ <td><a href='/logoutservlet'>Kirjaudu ulos</a></td>
+
+
     <footer>
     <h4>Sofian ja Eevin vaalikone</h4>
     </footer>
