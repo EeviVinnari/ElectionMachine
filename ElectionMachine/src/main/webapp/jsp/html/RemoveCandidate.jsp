@@ -1,12 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="app.model.Vaalikone" %>
+<%@ page import="dao.Dao" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
+	<!DOCTYPE html>
+	<html>
+	<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+	</head>
+	<body>
 
-</body>
-</html>
+	<h2>Poista ehdokas</h2>
+	<br>
+	<c:forEach var="vaalikone" items="${requestScope.allvaalikone }">>
+	<b>Ehdokas id</b>
+	${ehdokas.ehdokas_id}<br>
+	<a id="removeButton" href="removeCandidate?ehdokas_id=${ehdokas.ehdokas_id}">Poista ehdokas</a>
+	</c:forEach>
+
+	</body>
+	</html>
