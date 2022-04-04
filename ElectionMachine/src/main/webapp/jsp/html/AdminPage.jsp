@@ -100,6 +100,7 @@ a:visited {
 
     <footer>
     <h4>Sofian ja Eevin vaalikone</h4>
+     <td><a href='/logintesti'>tarkista</a></td>
     </footer>
 </body>
 </html>
