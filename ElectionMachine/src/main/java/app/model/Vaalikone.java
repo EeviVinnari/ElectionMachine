@@ -30,7 +30,7 @@ public class Vaalikone implements Serializable{
 	}
 	
 	public String getSukunimi() {
-		return etunimi;
+		return sukunimi;
 	}
 	public void setSukunimi(String sukunimi) {
 		this.sukunimi = sukunimi;

@@ -12,14 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.Dao;
-import app.model.Vaalikone;
+import app.model.Kysymykset;
+
+
 
 @WebServlet(
-	    name = "ShowCandidates",
-	    urlPatterns = {"/showcandidates"}
-	)
+		 name = "AnswerQuestions",
+		 urlPatterns = {"/answerquestions"}
+		)
 
-public class ShowCandidates extends HttpServlet {
+public class AnswerQuestions extends HttpServlet {
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) 
@@ -29,11 +31,12 @@ public class ShowCandidates extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		Dao dao = new Dao();
-		ArrayList<Vaalikone> vaalikone = dao.readAllVaalikone();
+		ArrayList<Kysymykset> kysymykset = dao.readAllKysymykset();
+		System.out.println(kysymykset.size());
 		
-		session.setAttribute("allvaalikone", vaalikone);
+		session.setAttribute("allkysymykset", kysymykset);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("jsp/html/showcandidates.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("jsp/html/answerquestions.jsp");
 		rd.forward(request, response);
 	
 	}
@@ -43,8 +46,5 @@ public class ShowCandidates extends HttpServlet {
 			throws IOException, ServletException {
 		doGet(request, response);
 	}
+
 }
-
-	
-
-

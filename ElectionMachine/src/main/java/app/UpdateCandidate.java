@@ -1,3 +1,11 @@
+/*package app;
+
+import javax.servlet.http.HttpServlet;
+
+public class UpdateCandidate extends HttpServlet {
+
+}*/
+
 package app;
 
 import java.io.IOException;
@@ -15,11 +23,11 @@ import dao.Dao;
 import app.model.Vaalikone;
 
 @WebServlet(
-	    name = "ShowCandidates",
-	    urlPatterns = {"/showcandidates"}
+	    name = "UpdateCandidate",
+	    urlPatterns = {"/updatecandidate"}
 	)
 
-public class ShowCandidates extends HttpServlet {
+public class UpdateCandidate extends HttpServlet {
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) 
@@ -33,7 +41,7 @@ public class ShowCandidates extends HttpServlet {
 		
 		session.setAttribute("allvaalikone", vaalikone);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("jsp/html/showcandidates.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("jsp/html/UpdateCandidate.jsp");
 		rd.forward(request, response);
 	
 	}
@@ -43,8 +51,5 @@ public class ShowCandidates extends HttpServlet {
 			throws IOException, ServletException {
 		doGet(request, response);
 	}
+
 }
-
-	
-
-

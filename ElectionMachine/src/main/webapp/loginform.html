@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+<title>Insert title here</title>
+
+<style>
+
+body  
+{  
+    margin: 0;  
+    padding: 0;  
+    background-color:lightgray;    
+}  
+.login{  
+        width: 382px;  
+        overflow: hidden;  
+        margin: auto;  
+        margin: 20 0 0 450px;  
+        padding: 80px;  
+        background: darkgrey;  
+        border-radius: 15px ;  
+          
+}  
+h1{
+	text-align: center;  
+    color: black;  
+    padding: 20px;  
+}
+h2{  
+    text-align: center;  
+    color: black;  
+    padding: 20px;  
+}  
+label{  
+    color: black;  
+    font-size: 17px;  
+}  
+#Username{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+}  
+#Password{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+      
+}  
+#send{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 17px;  
+    padding-left: 7px;  
+    color: blue;  
+  
+  
+}  
+    footer{
+    	text-align: center;
+    	position: static;
+    	background-color: white;
+    	bottom: 0%;
+    	width: 100%;
+    	padding: 10px;
+    }
+    header{
+    	text-align: center;
+    	position: static;
+    	background-color: white;
+    	bottom: 0%;
+    	width: 100%;
+    	padding: 3px;
+    }
+
+</style>
+</head>
+<body>
+<header>
+<h1>Election Machine</h1>
+</header>
+<h1>Salasanan tarkistus</h1>
+
+<div class="login">
+<h2>Kirjaudu sisään</h2>
+<form action="/check" method="post">
+<label><b>Käyttäjänimi</b></label> 
+<input type="text" name="username" value="">
+</br>
+<label><b>Salasana</b></label> 
+<input type="password" name="password" value="">
+
+<input type="submit" name="send" value="OK">
+</form>
+
+<h2>Luo käyttäjänimi ja salasana</h2>
+<form action="/add" method="post">
+<label><b>Käyttäjänimi</b></label> 
+<input type="text" name="username" value="">
+</br>
+<label><b>Salasana</b></label> 
+<input type="password" name="password" value="">
+
+<input type="submit" name="send" value="Luo">
+</form>
+</div>
+</br>
+    <footer>
+    <h4>Sofian ja Eevin vaalikone</h4>
+    </footer>
+</body>
+</html>
