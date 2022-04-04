@@ -6,6 +6,7 @@ import java.security.SecureRandom;
 import java.util.Base64;
 
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpSession;
 
 public class SecurityUtils {
 	
@@ -45,5 +46,11 @@ if ( storedHash.equals(getPasswordHashed(password, storedSalt))) {
 	return true;
 }
 return false;
+}
+public static boolean isUserLogged(HttpSession session) {
+	if (session != null && session.getAttribute("LoggedUser") != null) {
+		return true;
+	}
+	return false;
 }
 }
