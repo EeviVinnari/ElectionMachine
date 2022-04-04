@@ -104,6 +104,8 @@ font-size: 20px;
  </br>
  </br>
 
+</br>
+</br>
 
     <footer>
     <h4>Sofian ja Eevin vaalikone</h4>
