@@ -69,9 +69,9 @@ background-color: #B0C4DE;
 	<th>Etunimi</th>
 	<th>Puolue</th>
 	<th>Kotipaikkakunta</th>
-	<th>Ika</th>
+	<th>Ik‰</th>
 	<th>Miksi eduskuntaan</th>
-	<th>Mita asioita haluat edistaa</th>
+	<th>Mit‰ asioita haluat edist‰‰</th>
 	<th>Ammatti</th>
 </tr>
 

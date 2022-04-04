@@ -35,10 +35,10 @@
 
 		
 		<td>
-			<a href="/editcandidate?ehdokas_id=${vaalikone.ehdokas_id }">Edit</a>
+			<a href="/editcandidate?ehdokas_id=${vaalikone.ehdokas_id }">Muokkaa</a>
 		</td>
 		<td>
-			<a href="/removecandidate?ehdokas_id=${vaalikone.ehdokas_id }">Remove</a>
+			<a href="/removecandidate?ehdokas_id=${vaalikone.ehdokas_id }">Poista</a>
 		</td>
 	</tr>
 </c:forEach>
