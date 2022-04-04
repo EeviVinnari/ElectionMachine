@@ -13,12 +13,57 @@
 
 
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Ehdokkaat</title>
+
+<style>
+body{
+background-color: #B0C4DE;
+}
+    footer{
+    	text-align: center;
+    	position: static;
+    	background-color: white;
+    	bottom: 0%;
+    	width: 100%;
+    	padding: 10px;
+    }
+    header{
+    	text-align: center;
+    	position: static;
+    	background-color: white;
+    	bottom: 0%;
+    	width: 100%;
+    	padding: 3px;
+    }
+    h4 {
+		font-family: "Times New Roman", Times, serif;
+		font-size: 20px;
+	}
+	      header img {
+        width: 100px;
+        position: absolute;
+        left: 22.5px;
+        top: 2.5px;
+      }
+</style>
 </head>
 <body>
 
+  <header>
+  
+  <h1>Vaalikone - ehdokkaat </h1>
+
+  <a href="index.html" target="_blank">
+          <img 
+          src="https://www.pngrepo.com/png/369105/512/arrow-left-small.png"></a>
+  
+  </header>
+  </br>
+  
+  
+
 <table>
-<tr>
+<tr class="red">
 	<th>Ehdokas ID</th>
 	<th>Sukunimi</th>
 	<th>Etunimi</th>
@@ -33,6 +78,7 @@
 <c:forEach var="vaalikone" items="${sessionScope.allvaalikone }">
 
 	<tr>
+	
 		<td>${vaalikone.ehdokas_id }</td>
 		<td>${vaalikone.sukunimi }</td>
 		<td>${vaalikone.etunimi }</td>
@@ -44,12 +90,13 @@
 		<td>${vaalikone.ammatti }</td>
 
 		
-		<td>
-			<a href="/editgame?id=${vaalikone.ehdokas_id }">Edit</a>
-		</td>
+
 	</tr>
 </c:forEach>
 </table>
-
+</br>
+    <footer>
+    <h4>Sofian ja Eevin vaalikone</h4>
+    </footer>
 </body>
 </html>

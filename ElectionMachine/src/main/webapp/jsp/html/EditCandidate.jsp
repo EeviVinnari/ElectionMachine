@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Edit Vaalikone</title>
+<title>Muokkaa ehdokkaita</title>
 </head>
 <body>
 
