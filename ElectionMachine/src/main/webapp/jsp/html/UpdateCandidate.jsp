@@ -54,6 +54,20 @@ header img {
         left: 22.5px;
         top: 2.5px;
       }
+.purple{
+        width: 382px;  
+        overflow: hidden;  
+        margin: auto;  
+        font-size: 18px;
+        
+  		border-spacing: 0 15px;
+       
+}
+td {
+  text-align: center;
+  padding: 5px;
+}
+
 </style>
 
 </head>
@@ -66,20 +80,20 @@ header img {
   </header>
   
 </br>
-<table>
-<tr>
+<table class="purple">
+<!--  <tr>
 	<th>Ehdokas ID</th>
 	<th>Sukunimi</th>
 	<th>Etunimi</th>
+-->
 
 </tr>
 
 <c:forEach var="vaalikone" items="${sessionScope.allvaalikone }">
 
 	<tr>
-		<td>${vaalikone.ehdokas_id }</td>
-		<td>${vaalikone.sukunimi }</td>
-		<td>${vaalikone.etunimi }</td>
+		<td><b>${vaalikone.ehdokas_id  }:<b></b></td>
+		<td>${vaalikone.sukunimi } ${vaalikone.etunimi }</td>
 
 
 		
