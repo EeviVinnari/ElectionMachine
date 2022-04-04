@@ -82,7 +82,7 @@ font-size: 20px;
         <td><a href='/addform.html'>Uusi</a></td>
         <!-- '/jsp/html/addcandidate.jsp' -->
         <td><a href='/updatecandidate'>Muokkaa</a></td>
-        <td><a href=" ">Poista</a></td>
+        <td><a href="/updatecandidate">Poista</a></td>
 
       </tr>
     </table>
