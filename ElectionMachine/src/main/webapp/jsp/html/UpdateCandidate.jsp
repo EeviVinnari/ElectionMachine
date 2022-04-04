@@ -38,7 +38,7 @@
 			<a href="/editcandidate?ehdokas_id=${vaalikone.ehdokas_id }">Edit</a>
 		</td>
 		<td>
-			<a href="/removegame?id=${vaalikone.ehdokas_id }">Remove</a>
+			<a href="/removecandidate?ehdokas_id=${vaalikone.ehdokas_id }">Remove</a>
 		</td>
 	</tr>
 </c:forEach>

@@ -76,12 +76,14 @@ font-size: 20px;
     <table class="blue">
 
       <tr>
+
       
       <br>
         <td><a href='/addform.html'>Uusi</a></td>
         <!-- '/jsp/html/addcandidate.jsp' -->
         <td><a href='/updatecandidate'>Muokkaa</a></td>
         <td><a href=" ">Poista</a></td>
+
       </tr>
     </table>
 </br>
