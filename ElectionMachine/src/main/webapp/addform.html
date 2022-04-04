@@ -3,8 +3,56 @@
 <head>
 <meta charset="UTF-8">
 <title>Lisää uusi ehdokas</title>
+
+<style>
+ 
+  body{
+    background-color: #B0C4DE;
+    }
+    footer{
+    	text-align: center;
+    	position: static;
+    	background-color: white;
+    	bottom: 0%;
+    	width: 100%;
+    	padding: 10px;
+    }
+    header{
+    	text-align: center;
+    	position: static;
+    	background-color: white;
+    	bottom: 0%;
+    	width: 100%;
+    	padding: 3px;
+    }
+
+h4 {
+font-family: "Times New Roman", Times, serif;
+font-size: 20px;
+}
+form{
+        width: 382px;  
+        overflow: hidden;  
+        margin: auto;  
+        font-size: 20px;
+       
+}
+header img {
+        width: 100px;
+        position: absolute;
+        left: 22.5px;
+        top: 2.5px;
+      }
+</style>
 </head>
 <body>
+  <header>
+  <h1>ADMIN - Lisää uusi ehdokas </h1>
+      <a href="/jsp/html/AdminPage.jsp">
+          <img 
+          src="https://www.pngrepo.com/png/369105/512/arrow-left-small.png"></a>
+  </header>
+  </br>
 <form action='./addcandidate' method='post'>
 Ehdokas ID: <input type='text' name='ehdokas_id' value=''><br>
 Sukunimi: <input type='text' name='sukunimi' value=''><br>
@@ -17,5 +65,9 @@ Mita asioita haluat edistää: <input type='text' name='mita asioita haluat edis
 Ammatti: <input type='text' name='ammatti' value=''><br>
 <input type='submit' name='ok' value='OK'>
 </form>
+</br>
+    <footer>
+    <h4>Sofian ja Eevin vaalikone</h4>
+    </footer>
 </body>
 </html>
