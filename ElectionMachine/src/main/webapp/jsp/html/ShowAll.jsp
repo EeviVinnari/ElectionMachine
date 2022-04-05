@@ -27,7 +27,7 @@
 	<th>Mita asioita haluat edistaa</th>
 	<th>Ammatti</th>
 </tr>
-<c:forEach var="vaalikone" items="${sessionScope.allvaalikone }">
+<c:forEach var="vaalikone" items="${sessionScope.allvaalikones }">
 
 	<tr>
 		<td>${vaalikone.ehdokas_id }</td>

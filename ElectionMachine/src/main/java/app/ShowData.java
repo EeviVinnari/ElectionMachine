@@ -29,11 +29,11 @@ public class ShowData extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		Dao dao = new Dao();
-		ArrayList<Vaalikone> vaalikone = dao.readAllVaalikone();
+		ArrayList<Vaalikone> vaalikones = dao.readAllVaalikone();
 		
-		session.setAttribute("allvaalikone", vaalikone);
+		session.setAttribute("allvaalikones", vaalikones);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("jsp/html/ShowAll.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("jsp/html/showall.jsp");
 		rd.forward(request, response);
 	
 	}

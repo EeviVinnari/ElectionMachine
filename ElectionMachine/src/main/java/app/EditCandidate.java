@@ -37,14 +37,14 @@ public class EditCandidate extends HttpServlet {
 		// if sessions does not exist, create new one
 		HttpSession session = request.getSession();
 		
-		String idValue = request.getParameter("ehdokas_id");
+		String ehdokas_idValue = request.getParameter("ehdokas_id");
 		
-		if ( idValue != null ) {
+		if ( ehdokas_idValue != null ) {
 			try {
-				int id = Integer.parseInt(idValue);
+				int ehdokas_id = Integer.parseInt(ehdokas_idValue);
 				
 				Dao dao = new Dao();
-				Vaalikone vaalikone = dao.getVaalikoneInfo(id);
+				Vaalikone vaalikone = dao.getVaalikoneInfo(ehdokas_id);
 				
 				session.setAttribute("vaalikone", vaalikone);
 				
@@ -78,7 +78,7 @@ public class EditCandidate extends HttpServlet {
 		// Back to list after actions
 		//RequestDispatcher rd = request.getRequestDispatcher("/updatecandidate");
 		//rd.forward(request, response);
-		response.sendRedirect("/updatecandidate");
+		response.sendRedirect("/showdata");
 	}
 	
 	private Vaalikone readVaalikone(HttpServletRequest request) {
