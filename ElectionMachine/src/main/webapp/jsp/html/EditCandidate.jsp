@@ -25,7 +25,7 @@
 		Ammatti: <input type='text' name='ammatti' value='${sessionScope.vaalikone.ammatti }'><br>
 		
 		<input type="hidden" name="ehdokas_id" value="${sessionScope.vaalikone.ehdokas_id }">		
-		<input type='submit' name='ok' value='Edit'>
+		<input type='submit' name='ok' value='Muokkaa'>
 	</form>
 
 </body>
