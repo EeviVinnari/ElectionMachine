@@ -46,6 +46,19 @@ background-color: #B0C4DE;
         left: 22.5px;
         top: 2.5px;
       }
+      .red{
+        width: 382px;  
+        overflow: hidden;  
+        margin: auto;  
+        font-size: 18px;
+        
+  		border-spacing: 5 25px;
+       
+}
+td {
+  text-align: center;
+  padding: 5px;
+}
 </style>
 </head>
 <body>
@@ -65,7 +78,7 @@ background-color: #B0C4DE;
 
 <table>
 <tr class="red">
-	<th>Ehdokas ID</th>
+<!--<th>Ehdokas ID</th>
 	<th>Sukunimi</th>
 	<th>Etunimi</th>
 	<th>Puolue</th>
@@ -73,21 +86,26 @@ background-color: #B0C4DE;
 	<th>Ik‰</th>
 	<th>Miksi eduskuntaan</th>
 	<th>Mit‰ asioita haluat edist‰‰</th>
-	<th>Ammatti</th>
+	<th>Ammatti</th>-->
 </tr>
 
 <c:forEach var="vaalikone" items="${sessionScope.allvaalikone }">
 
 	<tr>
 	
-		<td>${vaalikone.ehdokas_id }</td>
-		<td>${vaalikone.sukunimi }</td>
-		<td>${vaalikone.etunimi }</td>
+		<td><b>${vaalikone.ehdokas_id }: <b></b></td>
+		<td><b>${vaalikone.sukunimi } ${vaalikone.etunimi }</b></td>
+		<th>Puolue:</th>
 		<td>${vaalikone.puolue }</td>
+			<th>Kotipaikkakunta:</th>
 		<td>${vaalikone.kotipaikkakunta }</td>
+			<th>Ik‰:</th>
 		<td>${vaalikone.ika }</td>
+		<th>Miksi eduskuntaan:</th>
 		<td>${vaalikone.miksi_eduskuntaan }</td>
+			<th>Mit‰ asioita haluat edist‰‰:</th>
 		<td>${vaalikone.mita_asioita_haluat_edistaa }</td>
+		<th>Ammatti:</th>
 		<td>${vaalikone.ammatti }</td>
 
 		
