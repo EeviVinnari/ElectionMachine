@@ -37,9 +37,9 @@ public class UpdateCandidate extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		Dao dao = new Dao();
-		ArrayList<Vaalikone> vaalikone = dao.readAllVaalikone();
+		ArrayList<Vaalikone> vaalikones = dao.readAllVaalikone();
 		
-		session.setAttribute("allvaalikone", vaalikone);
+		session.setAttribute("allvaalikones", vaalikones);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("jsp/html/UpdateCandidate.jsp");
 		rd.forward(request, response);
