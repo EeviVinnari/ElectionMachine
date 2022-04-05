@@ -25,22 +25,20 @@ public class Dao {
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			conn=java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/vaalikone", "pena", "kukkuu");
-		} catch (SQLException | InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+		}catch (SQLException | InstantiationException | IllegalAccessException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
+		}
+	
 	public void close() {
 		try {
 			conn.close();
-		} catch (SQLException e) {
+		}catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-	
-	
-	
+		}
 	
 	public int saveVaalikone(Vaalikone vaalikone) {
 		Statement stmt=null;
@@ -48,12 +46,12 @@ public class Dao {
 		try {
 			stmt = conn.createStatement();
 			count=stmt.executeUpdate("insert into ehdokkaat(sukunimi, etunimi, puolue, kotipaikkakunta, ika, miksi_eduskuntaan, mita_asioita_haluat_edistaa, ammatti) values('"+vaalikone.getSukunimi()+"', '"+vaalikone.getEtunimi()+"', '"+vaalikone.getPuolue()+"', '"+vaalikone.getKotipaikkakunta()+"', "+vaalikone.getIka()+", '"+vaalikone.getMiksi_eduskuntaan()+"', '"+vaalikone.getMita_asioita_haluat_edistaa()+"', '"+vaalikone.getAmmatti()+"')");
-		} catch (SQLException e) {
+		}catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return count;
-	}
+		}
 	
 	public ArrayList<Vaalikone> readAllVaalikone() {
 		ArrayList<Vaalikone> list=new ArrayList<>();
@@ -75,12 +73,12 @@ public class Dao {
 				vaalikone.setAmmatti(rs.getString("ammatti"));
 				list.add(vaalikone);
 			}
-		} catch (SQLException e) {
+		}catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+			}
 		return list;
-	}
+			}
 	
 	public int updateVaalikone(Vaalikone vaalikone) {
 		int count = 0;
@@ -105,7 +103,7 @@ public class Dao {
 			e.printStackTrace();
 		}
 		return count;
-	}
+		}
 	
 	public Vaalikone getVaalikoneInfo(int ehdokas_id) {
 		Vaalikone result = null;
@@ -130,29 +128,12 @@ public class Dao {
 				result.setAmmatti(resultset.getString("ammatti"));
 				
 			}
-		} catch (SQLException e) {
+		}catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+			}
 		return result;
-	}
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+			}
 	
 	public void addUser(String username, String pw, String salt) {
 		String sql = "insert into useraccount (username, hashedpassword,salt) values (?,?,?)";
@@ -164,12 +145,11 @@ public class Dao {
 			stmt.setString(3, salt);
 			
 			stmt.executeUpdate();
-		} catch (SQLException e) {
+		}catch (SQLException e) {
 			
 			e.printStackTrace();
-	
 		}
-	}
+		}
 	
 	public String getUserSalt(String username) {
 		String result = "";
@@ -184,7 +164,7 @@ public class Dao {
 			if ( rs.next()) {
 				result = rs.getString("salt");
 			}
-		} catch (SQLException e) {
+		}catch (SQLException e) {
 			
 			e.printStackTrace();
 			}
@@ -204,13 +184,12 @@ public class Dao {
 			if (rs.next()) {
 				result = rs.getString("hashedpassword");
 			}
-		} catch (SQLException e) {
+		}catch (SQLException e) {
 			
 			e.printStackTrace();
 			}
 		return result;
 		}
-	
 	
 	
 	public int saveKysymykset(Kysymykset kysymykset) {
@@ -225,7 +204,7 @@ public class Dao {
 			e.printStackTrace();
 		}
 		return count;
-	}
+		}
 	
 	public ArrayList<Kysymykset> readAllKysymykset() {
 		ArrayList<Kysymykset> list=new ArrayList<>();
@@ -245,7 +224,7 @@ public class Dao {
 			e.printStackTrace();
 		}
 		return list;
-	}
+		}
 	
 	public int updateKysymykset(Kysymykset kysymykset) {
 		int count = 0;
@@ -255,17 +234,15 @@ public class Dao {
 			
 			stmt.setString(1, kysymykset.getKysymys());
 			
-			
 			stmt.setInt(2, kysymykset.getKysymys_id());
 		
-			
 			count = stmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return count;
-	}
+		}
 	
 	
 	public ArrayList<Kysymykset> removeQuestion(String id) {
@@ -277,7 +254,9 @@ public class Dao {
 			return readAllKysymykset();
 		}catch (SQLException e) {
 			return null;
-		}}
+		}
+		}
+	
 	public Kysymykset getKysymyksetInfo(int kysymys_id) {
 		Kysymykset result = null;
 		String sql = "select * from kysymykset where kysymys_id = ?";
@@ -298,7 +277,7 @@ public class Dao {
 			e.printStackTrace();
 		}
 		return result;
-	}
+		}
 	
 	public ArrayList<Vaalikone> removeCandidate(String id) {
 		try {
@@ -310,7 +289,8 @@ public class Dao {
 			}catch (SQLException e) {
 				return null;
 			}
-	}
+		}
+	
 	public boolean getConnection() {
 		try {
 			if (conn == null || conn.isClosed()) {
@@ -327,7 +307,7 @@ public class Dao {
 			System.out.println("Yhdistäminen ei onnistu");
 			return false;
 		}
-	}
+		}
 	public int deleteCandidate(int ehdokas_id) {
         int count = 0;
         String sql = "delete from ehdokkaat WHERE ehdokas_id=?";

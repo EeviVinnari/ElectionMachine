@@ -9,20 +9,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet(
+	@WebServlet(
 	    name = "LogoutServlet",
 	    urlPatterns = {"/logoutservlet"}
-	)
+		)
 
 public class LogoutServlet extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) 
-			throws IOException, ServletException {
+		throws IOException, ServletException {
 		doPost(request, response);
 	}
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) 
-			throws IOException, ServletException {
+		throws IOException, ServletException {
 		
 		HttpSession session = request.getSession(false);
 		
@@ -31,6 +31,5 @@ public class LogoutServlet extends HttpServlet {
 			session = null;
 		}
 		response.sendRedirect("index.html");
+		}	
 		}
-	
-}

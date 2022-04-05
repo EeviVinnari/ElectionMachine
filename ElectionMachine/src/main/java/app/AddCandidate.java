@@ -26,10 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 import dao.Dao;
 import app.model.Vaalikone;
 
-/*
- * The name of the servlet is AddCandidate
- * and the servlet's URI (url-pattern) is 'addcandidate'
- */
+
 @WebServlet(
 		name = "AddCandidate",
 		urlPatterns = {"/addcandidate"}
@@ -49,11 +46,6 @@ public class AddCandidate extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
 
-		/*
-		 * With a RequestDispatcher object is the htmlstart.html file included to this servlet
-		 
-		RequestDispatcher rd=request.getRequestDispatcher("staticpages/htmlstart.html");
-		rd.include(request,  response);;*/
 		
 		// Read parameters to Model
 		Vaalikone vaalikone=readVaalikone(request);
@@ -72,11 +64,6 @@ public class AddCandidate extends HttpServlet {
 
 		out.println("<br><a href='./jsp/html/AdminPage.jsp'>Back to admin page</a>");
 
-		/*
-		 * With a RequestDispatcher object is the htmlend.html file included to this servlet
-		 
-		rd=request.getRequestDispatcher("staticpages/htmlend.html");
-		rd.include(request,  response);;*/
 	}
 
 
@@ -94,7 +81,7 @@ public class AddCandidate extends HttpServlet {
 		vaalikone.setMita_asioita_haluat_edistaa(request.getParameter("mita_asioita_haluat_edistaa"));
 		vaalikone.setAmmatti(request.getParameter("ammatti"));
 		return vaalikone;
-	}
+		}
 	
 	private void printVaalikoneList(PrintWriter out, ArrayList<Vaalikone> list) {
 		out.println("<ul>");
@@ -102,6 +89,5 @@ public class AddCandidate extends HttpServlet {
 			out.println("<li>"+v);
 		}
 		out.println("</ul>");
-	}
-
-}
+		}
+		}

@@ -5,14 +5,14 @@
 <%@ page import="dao.Dao" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
-	<!DOCTYPE html>
-	<html>
-	<head>
-	<meta charset="ISO-8859-1">
-	<title>Insert title here</title>
-	</head>
-	<body>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
 
+<body>
 	<h2>Poista ehdokas</h2>
 	<br>
 	
@@ -24,5 +24,5 @@
 	<a id="removeButton" href="removeCandidate?ehdokas_id=${vaalikone.ehdokas_id}">Poista ehdokas</a>
 	</c:forEach>
 
-	</body>
-	</html>
+</body>
+</html>

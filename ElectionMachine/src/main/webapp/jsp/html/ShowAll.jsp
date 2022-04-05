@@ -14,9 +14,9 @@
 <title>Lista ehdokkaista</title>
 
 <style>
-body{
-background-color: #B0C4DE;
-}
+	body{
+		background-color: #B0C4DE;
+	}
     footer{
     	text-align: center;
     	position: static;
@@ -37,23 +37,22 @@ background-color: #B0C4DE;
 		font-family: "Times New Roman", Times, serif;
 		font-size: 20px;
 	}
-	      header img {
+	header img {
         width: 100px;
         position: absolute;
         left: 22.5px;
         top: 2.5px;
-      }
+	}
 </style>
 </head>
-<body>
 
-  <header>
-  <h1>ADMIN - Lista ehdokkaista </h1>
-      <a href="/jsp/html/AdminPage.jsp">
-          <img 
-          src="https://www.pngrepo.com/png/369105/512/arrow-left-small.png"></a>
-  </header>
-  </br>
+<body>
+	<header>
+  	<h1>ADMIN - Lista ehdokkaista </h1>
+		<a href="/jsp/html/AdminPage.jsp">
+		<img src="https://www.pngrepo.com/png/369105/512/arrow-left-small.png"></a>
+	</header>
+	</br>
 
 <table>
 <tr>
@@ -70,7 +69,6 @@ background-color: #B0C4DE;
 <c:forEach var="vaalikone" items="${sessionScope.allvaalikones }">
 
 	<li>
-	
 		<ol>Ehdokkaan numero: ${vaalikone.ehdokas_id }</ol>
 		<ol>Sukunimi: ${vaalikone.sukunimi } </ol>
 		<ol>Etunimi: ${vaalikone.etunimi }</ol>
@@ -80,16 +78,13 @@ background-color: #B0C4DE;
 		<ol>Miksi eduskuntaan: ${vaalikone.miksi_eduskuntaan }</ol>
 		<ol>Mit‰ asioita haluat edist‰‰: ${vaalikone.mita_asioita_haluat_edistaa }</ol>
 		<ol>Ammatti: ${vaalikone.ammatti }</ol>
-
-		
-
 	</li>
 </c:forEach>
 </table>
-
-</br>
+	</br>
+	
     <footer>
-    <h4>Sofian ja Eevin vaalikone</h4>
+	<h4>Sofian ja Eevin vaalikone</h4>
     </footer>
 
 </body>

@@ -14,9 +14,9 @@
 <title>Kysymykset</title>
 
 <style>
-body{
-background-color: #B0C4DE;
-}
+	body{
+		background-color: #B0C4DE;
+	}
     footer{
     	text-align: center;
     	position: static;
@@ -37,48 +37,39 @@ background-color: #B0C4DE;
 		font-family: "Times New Roman", Times, serif;
 		font-size: 20px;
 	}
-		      header img {
+	header img {
         width: 100px;
         position: absolute;
         left: 22.5px;
         top: 2.5px;
-      }
+	}
 </style>
 </head>
-<body>
 
+<body>
   <header>
-  
-  <h1>Vaalikone - kysymykset </h1>
+  	<h1>Vaalikone - kysymykset </h1>
     <a href="index.html">
-          <img 
-          src="https://www.pngrepo.com/png/369105/512/arrow-left-small.png"></a>
-  
+          <img src="https://www.pngrepo.com/png/369105/512/arrow-left-small.png"></a>
   </header>
   </br>
 
 <table>
-<tr>
-	<th>Kysymys ID</th>
-	<th>Kysymys</th>
-	
-</tr>
 
 <c:forEach var="kysymykset" items="${sessionScope.allkysymykset }">
 
 	<tr>
-		<td>${kysymykset.kysymys_id}</td>
+		<td>${kysymykset.kysymys_id}.</td>
 		<td>${kysymykset.kysymys}</td>
-	
-		
-		
 	</tr>
 </c:forEach>
+
 </table>
-</br>
+	</br>
 
     <footer>
     <h4>Sofian ja Eevin vaalikone</h4>
     </footer>
+    
 </body>
 </html>

@@ -22,16 +22,16 @@ import javax.servlet.http.HttpSession;
 import dao.Dao;
 import app.model.Vaalikone;
 
-@WebServlet(
+	@WebServlet(
 	    name = "UpdateCandidate",
 	    urlPatterns = {"/updatecandidate"}
-	)
+		)
 
 public class UpdateCandidate extends HttpServlet {
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) 
-			throws IOException, ServletException {
+		throws IOException, ServletException {
 		
 		// if sessions does not exist, create new one
 		HttpSession session = request.getSession();
@@ -44,12 +44,11 @@ public class UpdateCandidate extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("jsp/html/UpdateCandidate.jsp");
 		rd.forward(request, response);
 	
-	}
+		}
 	
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) 
-			throws IOException, ServletException {
+		throws IOException, ServletException {
 		doGet(request, response);
-	}
-
-}
+		}
+		}

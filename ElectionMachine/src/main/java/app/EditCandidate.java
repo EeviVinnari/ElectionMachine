@@ -23,7 +23,7 @@ import javax.servlet.http.HttpSession;
 import dao.Dao;
 import app.model.Vaalikone;
 
-@WebServlet(
+	@WebServlet(
 		name = "EditCandidate",
 		urlPatterns = {"/editcandidate"}
 		)
@@ -54,13 +54,13 @@ public class EditCandidate extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else {
+			} else {
 			// Back to list
 			response.sendRedirect("/updatecandidate");
 			
 		}
 	
-	}
+		}
 	
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) 
@@ -79,7 +79,7 @@ public class EditCandidate extends HttpServlet {
 		//RequestDispatcher rd = request.getRequestDispatcher("/updatecandidate");
 		//rd.forward(request, response);
 		response.sendRedirect("/showdata");
-	}
+		}
 	
 	private Vaalikone readVaalikone(HttpServletRequest request) {
 		// TODO Auto-generated method stub
@@ -94,6 +94,6 @@ public class EditCandidate extends HttpServlet {
 		vaalikone.setMita_asioita_haluat_edistaa(request.getParameter("mita_asioita_haluat_edistaa"));
 		vaalikone.setAmmatti(request.getParameter("ammatti"));
 		return vaalikone;
-	}
-}
+		}
+		}
 

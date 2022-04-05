@@ -47,4 +47,4 @@ public class AnswerQuestions extends HttpServlet {
 		doGet(request, response);
 	}
 
-}
+	}

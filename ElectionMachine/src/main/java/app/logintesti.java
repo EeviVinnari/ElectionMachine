@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet(
+	@WebServlet(
 		name = "logintesti",
 		urlPatterns = {"/logintesti"}
 		)
@@ -29,5 +29,5 @@ public class logintesti extends HttpServlet {
 			response.getWriter().println("Käyttäjä ei ole kirjautunut");
 		}
 		response.getWriter().println("<br><a href=\"index.html\">back</a>");
-}
-}
+		}
+		}

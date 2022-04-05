@@ -17,6 +17,7 @@ Miksi_eduskuntaan: <input type='text' name='miksi_eduskuntaan' value=''><br>
 Mita asioita haluat edistaa: <input type='text' name='mita asioita haluat edistaa' value=''><br>
 Ammatti: <input type='text' name='ammatti' value=''><br>
 <input type='submit' name='ok' value='OK'>
+
 </form>
 </body>
 </html>

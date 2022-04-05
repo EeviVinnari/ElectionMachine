@@ -43,7 +43,5 @@ public class AddUserServlet extends HttpServlet {
 		dao.close();
 		response.sendRedirect("loginform.html");
 		
-	}
-	
-
-}
+		}
+		}

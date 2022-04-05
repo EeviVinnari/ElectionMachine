@@ -51,6 +51,5 @@ public class CheckServlet extends HttpServlet {
 		
 		RequestDispatcher rd = request.getRequestDispatcher("index.html");
 		rd.forward(request, response);
-	}
-
-}
+		}
+		}
