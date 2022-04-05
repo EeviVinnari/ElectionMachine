@@ -98,8 +98,8 @@ public class AddCandidate extends HttpServlet {
 	
 	private void printVaalikoneList(PrintWriter out, ArrayList<Vaalikone> list) {
 		out.println("<ul>");
-		for (Vaalikone g:list) {
-			out.println("<li>"+g);
+		for (Vaalikone v:list) {
+			out.println("<li>"+v);
 		}
 		out.println("</ul>");
 	}

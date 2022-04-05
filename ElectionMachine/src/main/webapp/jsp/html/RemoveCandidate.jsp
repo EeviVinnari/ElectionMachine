@@ -15,10 +15,13 @@
 
 	<h2>Poista ehdokas</h2>
 	<br>
-	<c:forEach var="vaalikone" items="${requestScope.allvaalikone }">>
+	
+	<c:forEach var="vaalikone" items="${sessionScope.vaalikone }">
+	
 	<b>Ehdokas id</b>
-	${ehdokas.ehdokas_id}<br>
-	<a id="removeButton" href="removeCandidate?ehdokas_id=${ehdokas.ehdokas_id}">Poista ehdokas</a>
+	${vaalikone.ehdokas_id}<br>
+	
+	<a id="removeButton" href="removeCandidate?ehdokas_id=${vaalikone.ehdokas_id}">Poista ehdokas</a>
 	</c:forEach>
 
 	</body>

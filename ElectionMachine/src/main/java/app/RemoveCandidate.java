@@ -1,6 +1,7 @@
 package app;
 
 import java.io.IOException;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -20,74 +21,53 @@ import dao.Dao;
 	)
 
 public class RemoveCandidate extends HttpServlet {
-	
-	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws IOException, ServletException {
 		
 		// if sessions does not exist, create new one
-		HttpSession session = request.getSession();
-		
-		String idValue = request.getParameter("ehdokas_id");
-		
+				HttpSession session = request.getSession();
 
-        if ( idValue != null ) {
-            try {
-                int ehdokas_id = Integer.parseInt(idValue);
-                
-                Dao dao = new Dao();
-                Vaalikone vaalikone = dao.readVaalikone(ehdokas_id);
-                
-                session.setAttribute("Vaalikone", vaalikone);
-                
-                RequestDispatcher rd = request.getRequestDispatcher("jsp/html/removecandidate.jsp");
-                rd.forward(request, response);
-                
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } else {
-            // Back to list
-            response.sendRedirect("/showAll");
-            
-        }
-    
-    }
-    
-    @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response) 
-            throws IOException, ServletException {
-    
-        
-        // Create connection
-        Dao dao=new Dao();
-        Vaalikone vaalikone = readAllVaalikone(request);
-        
-        dao.removeVaalikone(vaalikone);
-        
-        dao.close();
-        
-        // Back to list after actions
-        //RequestDispatcher rd = request.getRequestDispatcher("/showdata");
-        //rd.forward(request, response);
-        response.sendRedirect("/showAll");
-    }
-    
-        private Vaalikone readVaalikone(HttpServletRequest request) {
-    		// TODO Auto-generated method stub
-    		Vaalikone vaalikone=new Vaalikone();
-    		vaalikone.setSukunimi(request.getParameter("sukunimi"));
-    		vaalikone.setEtunimi(request.getParameter("etunimi"));
-    		vaalikone.setEhdokas_Id(Integer.parseInt(request.getParameter("ehdokas_id")));
-    		vaalikone.setPuolue(request.getParameter("puolue"));
-    		vaalikone.setKotipaikkakunta(request.getParameter("kotipaikkakunta"));
-    		vaalikone.setIka(Integer.parseInt(request.getParameter("ika")));
-    		vaalikone.setMiksi_eduskuntaan(request.getParameter("miksi_eduskuntaan"));
-    		vaalikone.setMita_asioita_haluat_edistaa(request.getParameter("mita_asioita_haluat_edistaa"));
-    		vaalikone.setAmmatti(request.getParameter("ammatti"));
-    		return vaalikone;
-    }
+				String idValue = request.getParameter("id");
+
+				if ( idValue != null ) {
+					try {
+						int id = Integer.parseInt(idValue);
+
+						Dao dao = new Dao();
+						Vaalikone vaalikone = dao.getVaalikoneInfo(id);
+
+						session.setAttribute("vaalikone", vaalikone);
+
+						RequestDispatcher rd = request.getRequestDispatcher("jsp/html/removecandidate.jsp");
+						rd.forward(request, response);
+
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				} else {
+					// Back to list
+					response.sendRedirect("/jsp/html/AdminPage.jsp");
+
+				}
+			}
+			@Override
+			public void doPost(HttpServletRequest request, HttpServletResponse response) 
+					throws IOException, ServletException {
+				// Create connection
+				Dao dao=new Dao();
+				
+
+				dao.deleteCandidate(Integer.parseInt(request.getParameter("id")));
+
+				dao.close();
+
+				// Back to list after actions
+				RequestDispatcher rd = request.getRequestDispatcher("/jsp/html/AdminPage.jsp");
+				rd.forward(request, response);
+				response.sendRedirect("/jsp/html/AdminPage.jsp");
+			}
+		
 }
 
 
