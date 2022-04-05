@@ -46,7 +46,7 @@ public class Dao {
 		int count=0;
 		try {
 			stmt = conn.createStatement();
-			count=stmt.executeUpdate("insert into ehdokkaat(sukunimi, etunimi, puolue,kotipaikkakunta, "
+			count=stmt.executeUpdate("insert into ehdokkaat(sukunimi, etunimi, puolue, kotipaikkakunta, "
 					+ "ika, miksi_eduskuntaan, mita_asioita_haluat_edistaa, ammatti)"
 					+ " values('"+vaalikone.getSukunimi()+"', "+vaalikone.getEtunimi()+"', "+vaalikone.getPuolue()+"', "+vaalikone.getKotipaikkakunta()+"',"
 					+ ""+vaalikone.getIka()+"', "+vaalikone.getMiksi_eduskuntaan()+"', "
