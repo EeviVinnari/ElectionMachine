@@ -13,7 +13,7 @@
 
 
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Muokkaa ja poista ehdokkaita</title>
 
 <style>
  
