@@ -109,7 +109,7 @@ font-size: 20px;
 
     <footer>
     <h4>Sofian ja Eevin vaalikone</h4>
-     <td><a href='/logintesti'>tarkista</a></td>
+     <td><a href='/logintesti'>Tarkista</a></td>
     </footer>
 </body>
 </html>
