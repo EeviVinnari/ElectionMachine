@@ -6,6 +6,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -46,7 +47,7 @@ public class Dao {
 		int count=0;
 		try {
 			stmt = conn.createStatement();
-			count=stmt.executeUpdate("insert into ehdokkaat(sukunimi, etunimi, puolue,kotipaikkakunta, "
+			count=stmt.executeUpdate("insert into ehdokkaat(sukunimi, etunimi, puolue, kotipaikkakunta, "
 					+ "ika, miksi_eduskuntaan, mita_asioita_haluat_edistaa, ammatti)"
 					+ " values('"+vaalikone.getSukunimi()+"', "+vaalikone.getEtunimi()+"', "+vaalikone.getPuolue()+"', "+vaalikone.getKotipaikkakunta()+"',"
 					+ ""+vaalikone.getIka()+"', "+vaalikone.getMiksi_eduskuntaan()+"', "
@@ -304,8 +305,54 @@ public class Dao {
 		return result;
 	}
 	
-	
+	public ArrayList<Vaalikone> removeCandidate(String id) {
+		try {
+			String sql = "delete from ehdokkaat where ehdokas_id=?";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.executeUpdate();
+			return readAllVaalikone();
+			}catch (SQLException e) {
+				return null;
+			}
+	}
+	public boolean getConnection() {
+		try {
+			if (conn == null || conn.isClosed()) {
+				try {
+					Class.forName("com.mysql.jdbc.Driver").newInstance();
+				}catch(ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+					throw new SQLException (e);
+				}
+				conn = DriverManager.getConnection("jdbc:db2:mysql", "pena", "kukkuu");
+			}
+			return true;
+		}catch (SQLException e) {
+			System.out.println(e.getMessage());
+			System.out.println("Yhdistäminen ei onnistu");
+			return false;
 		}
+	}
+	public int deleteCandidate(int ehdokas_id) {
+        int count = 0;
+        String sql = "delete from ehdokkaat WHERE ehdokas_id=?";
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+
+            stmt.setInt(1, ehdokas_id);
+
+            count = stmt.executeUpdate();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return count;
+    }
+}
+	
+	
+	
+		
 		
 	
 	
