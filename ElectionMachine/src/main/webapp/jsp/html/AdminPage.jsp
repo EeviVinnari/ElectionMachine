@@ -55,6 +55,10 @@ h4 {
 font-family: "Times New Roman", Times, serif;
 font-size: 20px;
 }
+.green{
+  	max-width: 500px;
+  	margin: auto;
+}
 
 
     </style>
@@ -89,10 +93,23 @@ font-size: 20px;
 </br>
 
 
+    <table class="green">
+
+      <tr>
+</br>
+ <td><a href='/logoutservlet'>Kirjaudu ulos</a></td>
+ 
+       </tr>
+    </table>
+ </br>
+ </br>
+
+</br>
 </br>
 
     <footer>
     <h4>Sofian ja Eevin vaalikone</h4>
+     <td><a href='/logintesti'>tarkista</a></td>
     </footer>
 </body>
 </html>
