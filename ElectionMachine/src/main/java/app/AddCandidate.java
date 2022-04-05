@@ -66,7 +66,7 @@ public class AddCandidate extends HttpServlet {
 		ArrayList<Vaalikone> list=dao.readAllVaalikone();
 		
 		// print output and close connection
-		printVaalikoneList1(out, list);
+		printVaalikoneList(out, list);
 		dao.close();
 		
 
@@ -96,7 +96,7 @@ public class AddCandidate extends HttpServlet {
 		return vaalikone;
 	}
 	
-	private void printVaalikoneList1(PrintWriter out, ArrayList<Vaalikone> list) {
+	private void printVaalikoneList(PrintWriter out, ArrayList<Vaalikone> list) {
 		out.println("<ul>");
 		for (Vaalikone g:list) {
 			out.println("<li>"+g);
