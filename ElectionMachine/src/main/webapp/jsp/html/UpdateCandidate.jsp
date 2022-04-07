@@ -79,7 +79,7 @@
 	<th>Etunimi</th>
 -->
 
-<c:forEach var="vaalikone" items="${sessionScope.allvaalikone }">
+<c:forEach var="vaalikone" items="${sessionScope.allvaalikones }">
 
 	<tr>
 		<td><b>${vaalikone.ehdokas_id  }:<b></b></td>
