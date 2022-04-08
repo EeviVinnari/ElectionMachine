@@ -279,17 +279,21 @@ public class Dao {
 		return result;
 		}
 	
-	public ArrayList<Vaalikone> removeCandidate(String id) {
-		try {
-			String sql = "delete from ehdokkaat where ehdokas_id=?";
-			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, id);
-			pstmt.executeUpdate();
-			return readAllVaalikone();
-			}catch (SQLException e) {
-				return null;
-			}
-		}
+	public int removeCandidate(int Ehdokas_id) throws SQLException {
+
+        int count = 0;
+        String sql = "DELETE from ehdokkaat WHERE Ehdokas_id=?";
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+
+            stmt.setInt(1, Ehdokas_id);
+
+            count = stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
 	
 	public boolean getConnection() {
 		try {

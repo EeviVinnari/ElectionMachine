@@ -1,5 +1,6 @@
 package app;
 
+import java.sql.SQLException;
 import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
@@ -15,59 +16,64 @@ import javax.servlet.http.HttpSession;
 import app.model.Vaalikone;
 import dao.Dao;
 
-	@WebServlet(
-	    name = "RemoveCandidate",
-	    urlPatterns = {"/removecandidate"}
-		)
+
+@WebServlet(
+    name = "RemoveCandidate",
+    urlPatterns = {"/removecandidate"}
+	)
 
 public class RemoveCandidate extends HttpServlet {
-	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) 
-		throws IOException, ServletException {
-		
-		// if sessions does not exist, create new one
-			HttpSession session = request.getSession();
+	
+@Override
+public void doGet(HttpServletRequest request, HttpServletResponse response) 
+	throws IOException, ServletException {
+	
+	// if sessions does not exist, create new one
+		HttpSession session = request.getSession();
 
-			String idValue = request.getParameter("id");
+		String idValue = request.getParameter("id");
 
-			if ( idValue != null ) {
-				try {
-					int id = Integer.parseInt(idValue);
+		if ( idValue != null ) {
+			try {
+				int ehdokas_id = Integer.parseInt(idValue);
 
-					Dao dao = new Dao();
-					Vaalikone vaalikone = dao.getVaalikoneInfo(id);
+				Dao dao = new Dao();
+				Vaalikone vaalikone = dao.getVaalikoneInfo(ehdokas_id);
 
-					session.setAttribute("vaalikone", vaalikone);
+				session.setAttribute("vaalikone", vaalikone);
 
-					RequestDispatcher rd = request.getRequestDispatcher("jsp/html/removecandidate.jsp");
-					rd.forward(request, response);
+				RequestDispatcher rd = request.getRequestDispatcher("jsp/html/removecandidate.jsp");
+				rd.forward(request, response);
 
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-					} else {
-					// Back to list
-					response.sendRedirect("/jsp/html/AdminPage.jsp");
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				} else {
+				// Back to list
+				response.sendRedirect("/jsp/html/AdminPage.jsp");
 
-					}
-					}
-	@Override
-	public void doPost(HttpServletRequest request, HttpServletResponse response) 
-		throws IOException, ServletException {
-		// Create connection
-		Dao dao=new Dao();
+				}
 				
+	// Create connection
+	Dao dao=new Dao();
+			
+			try {
+        
+				dao.deleteCandidate(Integer.parseInt(request.getParameter("ehdokas_id")));
+				
+			} catch (NumberFormatException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		dao.deleteCandidate(Integer.parseInt(request.getParameter("id")));
+	dao.close();
 
-		dao.close();
-
-		// Back to list after actions
-		RequestDispatcher rd = request.getRequestDispatcher("/jsp/html/AdminPage.jsp");
-		rd.forward(request, response);
-		response.sendRedirect("/jsp/html/AdminPage.jsp");
-		}		
-		}
-
-
-
+	// Back to list after actions
+	RequestDispatcher rd = request.getRequestDispatcher("/jsp/html/AdminPage.jsp");
+	rd.forward(request, response);
+	response.sendRedirect("/jsp/html/AdminPage.jsp");
+	}		
+	}
