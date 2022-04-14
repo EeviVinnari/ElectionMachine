@@ -27,6 +27,7 @@ import app.model.Vaalikone;
 		name = "EditCandidate",
 		urlPatterns = {"/editcandidate"}
 		)
+
 public class EditCandidate extends HttpServlet {
 	
 	@Override
