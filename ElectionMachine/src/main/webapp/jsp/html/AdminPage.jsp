@@ -82,12 +82,25 @@
 
       </tr>
     </table>
+    </br>
+    
+    <p>Kysymysten hallinta</p>
+    	<table class="blue">
+
+	<tr>
+    <br>
+        <td><a href='/addquestion'>Uusi</a></td>
+        <td><a href='/updatequestion'>Muokkaa</a></td>
+    <!--<td><a href='/updatequestion'>Poista-kysymys</a></td>--> 
+
+      </tr>
+    </table>
 	</br>
 
 
     <table class="green">
     <tr>
-	</br>
+	</br></br>
  		<td><a href='/logoutservlet'>Kirjaudu ulos</a></td>
  
     </tr>
