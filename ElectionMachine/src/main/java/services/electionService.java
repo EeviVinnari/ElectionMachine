@@ -51,7 +51,7 @@ public class electionService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}	}
+	}	
 //	@POST
 //	@Path("/addquestion")
 //	@Produces(MediaType.APPLICATION_JSON)
@@ -66,7 +66,7 @@ public class electionService {
 //		return list;
 //	}	
 //	@PUT
-//	@Path("/updatequestion")
+//	@Path("/editquestion")
 //	@Produces(MediaType.APPLICATION_JSON)
 //	@Consumes(MediaType.APPLICATION_JSON)
 //	public List<Kysymykset> updateKysymykset(Kysymykset kysymykset) {
@@ -97,15 +97,22 @@ public class electionService {
 //		List<Kysymykset> list=readKysymykset();		
 //		return list;
 //	}	
-//	@GET
-//	@Path("/readtoupdatequestion/{kysymys_id}")
-//	@Produces(MediaType.APPLICATION_JSON)
-//	@Consumes(MediaType.APPLICATION_JSON)
-//	public Kysymykset readToUpdateKysymykset(@PathParam("kysymys_id") int kysymys_id) {
-//		EntityManager em=emf.createEntityManager();
-//		em.getTransaction().begin();
-//		Kysymykset k=em.find(Kysymykset.class, kysymys_id);
-//		em.getTransaction().commit();
-//		return k;
-//	}	
-//}
+	@GET
+	@Path("/readtoupdatequestion/{kysymys_id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void readToUpdateKysymykset(@PathParam("kysymys_id") int kysymys_id) {
+		EntityManager em=emf.createEntityManager();
+		em.getTransaction().begin();
+		Kysymykset k=em.find(Kysymykset.class, kysymys_id);
+		em.getTransaction().commit();
+		RequestDispatcher rd=request.getRequestDispatcher("/jsp/showupdatedquestions.jsp");
+		request.setAttribute("updatedquestionlist", k);
+		try {
+			rd.forward(request, response);
+		} catch (ServletException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+	}	
+}
