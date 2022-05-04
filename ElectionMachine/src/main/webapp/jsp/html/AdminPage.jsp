@@ -90,8 +90,8 @@
 	<tr>
     <br>
         <td><a href='/addquestion'>Uusi</a></td>
-        <td><a href='/updatequestion'>Muokkaa</a></td>
-    <!--<td><a href='/updatequestion'>Poista-kysymys</a></td>--> 
+        <td><a href='/rest/electionservice/readquestion'>Muokkaa</a></td>
+    	<td><a href='/rest/electionservice/readquestion'>Poista</a></td>
 
       </tr>
     </table>
