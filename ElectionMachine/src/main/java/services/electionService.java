@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.GET;
@@ -52,51 +53,49 @@ public class electionService {
 			e.printStackTrace();
 		}
 	}	
-//	@POST
-//	@Path("/addquestion")
-//	@Produces(MediaType.APPLICATION_JSON)
-//	@Consumes(MediaType.APPLICATION_JSON)
-//	public List<Kysymykset> addFish(Kysymykset kysymykset) {
-//		EntityManager em=emf.createEntityManager();
-//		em.getTransaction().begin();
-//		em.persist(kysymykset);//The actual insertion line
-//		em.getTransaction().commit();
-//		//Calling the method readFish() of this service
-//		List<Kysymykset> list=readKysymykset();		
-//		return list;
-//	}	
-//	@PUT
-//	@Path("/editquestion")
-//	@Produces(MediaType.APPLICATION_JSON)
-//	@Consumes(MediaType.APPLICATION_JSON)
-//	public List<Kysymykset> updateKysymykset(Kysymykset kysymykset) {
-//		EntityManager em=emf.createEntityManager();
-//		em.getTransaction().begin();
-//		Kysymykset k=em.find(Kysymykset.class, kysymykset.getKysymys_id());
-//		if (k!=null) {
-//			em.merge(kysymykset);//The actual update line
-//		}
-//		em.getTransaction().commit();
-//		//Calling the method readFish() of this service
-//		List<Kysymykset> list=readKysymykset();		
-//		return list;
-//	}	
-//	@DELETE
-//	@Path("/deletequestion/{id}")
-//	@Produces(MediaType.APPLICATION_JSON)
-//	@Consumes(MediaType.APPLICATION_JSON)
-//	public List<Kysymykset> deleteFish(@PathParam("kysymys_id") int kysymys_id) {
-//		EntityManager em=emf.createEntityManager();
-//		em.getTransaction().begin();
-//		Kysymykset k=em.find(Kysymykset.class, kysymys_id);
-//		if (k!=null) {
-//			em.remove(k);//The actual insertion line
-//		}
-//		em.getTransaction().commit();
-//		//Calling the method readFish() of this service
-//		List<Kysymykset> list=readKysymykset();		
-//		return list;
-//	}	
+	@POST
+	@Path("/addquestion")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes("application/x-www-form-urlencoded")
+	public void addKysymykset(@FormParam("kysymys") String kysymys) {  
+		Kysymykset k=new Kysymykset(kysymys);
+		EntityManager em=emf.createEntityManager();
+		em.getTransaction().begin();
+		em.persist(k);//The actual insertion line
+		em.getTransaction().commit();
+		//Calling the method readKysymykset() of this service
+		readKysymykset();		
+	}	
+	@PUT
+	@Path("/editquestions")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void updateKysymykset(Kysymykset kysymykset) {
+		EntityManager em=emf.createEntityManager();
+		em.getTransaction().begin();
+		Kysymykset k=em.find(Kysymykset.class, kysymykset.getKysymys_id());
+		if (k!=null) {
+			em.merge(kysymykset);//The actual update line
+		}
+		em.getTransaction().commit();
+		//Calling the method readFish() of this service
+		readKysymykset();		
+	}	
+	@DELETE
+	@Path("/deletequestion/{kysymys_id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void deleteFish(@PathParam("kysymys_id") int kysymys_id) {
+		EntityManager em=emf.createEntityManager();
+		em.getTransaction().begin();
+		Kysymykset k=em.find(Kysymykset.class, kysymys_id);
+		if (k!=null) {
+			em.remove(k);//The actual insertion line
+		}
+		em.getTransaction().commit();
+		//Calling the method readFish() of this service
+		readKysymykset();		
+	}	
 	@GET
 	@Path("/readtoupdatequestion/{kysymys_id}")
 	@Produces(MediaType.APPLICATION_JSON)

@@ -10,7 +10,7 @@
 <body>
 <form action='../readquestion' method='post'>
 <c:forEach var="kysymykset" items="${requestScope.questionlist }">
-	<li>${kysymykset} <a href='../delete?kysymys_id=${kysymykset.kysymys_id}'>Delete</a> <a href='../readtoupdatequestion?kysymys_id=${kysymykset.kysymys_id}'>Update</a>
+	<li>${kysymykset} <a href='/rest/electionservice/delete?kysymys_id=${kysymykset.kysymys_id}'>Delete</a> <a href='/rest/electionservice/readtoupdatequestion?kysymys_id=${kysymykset.kysymys_id}'>Update</a>
 </c:forEach>
 </body>
 </html>
