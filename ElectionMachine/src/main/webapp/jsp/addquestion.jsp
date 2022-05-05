@@ -20,5 +20,6 @@ Lisää uusi kysymys: <input type='text' name='kysymys' value=''>
     <li>${kysymykset} <a href='../deletequestion?id=${kysymykset.kysymys_id}'>Delete</a> <a href='../readtoupdatekysymykset?id=${kysymykset.kysymys_id}'>Update</a>
 </c:forEach>
 </ol>
+
 </body>
 </html>
