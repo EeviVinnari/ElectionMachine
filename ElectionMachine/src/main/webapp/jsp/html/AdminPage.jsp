@@ -89,7 +89,7 @@
 
 	<tr>
     <br>
-        <td><a href='/addquestion'>Uusi</a></td>
+        <td><a href='/rest/electionservice/addquestion'>Uusi</a></td>
         <td><a href='/rest/electionservice/readquestion'>Muokkaa</a></td>
     	<td><a href='/rest/electionservice/readquestion'>Poista</a></td>
 
