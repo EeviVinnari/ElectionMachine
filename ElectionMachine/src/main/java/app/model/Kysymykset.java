@@ -18,10 +18,16 @@ public class Kysymykset implements Serializable{
 		super();
 	}
 	
+	public Kysymykset(String kysymys, int kysymys_id) {
+		super();
+		this.kysymys = kysymys;
+		this.kysymys_id = kysymys_id;
+	}
 	public Kysymykset(String kysymys) {
 		super();
 		this.kysymys = kysymys;
 	}
+
 
 	public int getKysymys_id() {
 		return kysymys_id;

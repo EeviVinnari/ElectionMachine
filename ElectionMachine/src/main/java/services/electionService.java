@@ -66,6 +66,19 @@ public class electionService {
 		//Calling the method readKysymykset() of this service
 		readKysymykset();		
 	}	
+	@POST
+	@Path("/updatequestion")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes("application/x-www-form-urlencoded")
+	public void updateKysymykset(@FormParam("kysymys") String kysymys, @FormParam("kysymys_id") int kysymys_id) {  
+		Kysymykset k=new Kysymykset(kysymys, kysymys_id);
+		EntityManager em=emf.createEntityManager();
+		em.getTransaction().begin();
+		em.merge(k);//The actual insertion line
+		em.getTransaction().commit();
+		//Calling the method readKysymykset() of this service
+		readKysymykset();		
+	}	
 	@PUT
 	@Path("/editquestions")
 	@Produces(MediaType.APPLICATION_JSON)
