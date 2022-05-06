@@ -57,7 +57,7 @@ public class electionService {
 	@Path("/addquestion")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes("application/x-www-form-urlencoded")
-	public void addKysymykset(@FormParam("kysymys") String kysymys, @FormParam("kysymys_id") int kysymys_id) {  
+	public void addKysymykset(@FormParam("kysymys") String kysymys) {  
 		Kysymykset k=new Kysymykset(kysymys);
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
@@ -85,7 +85,7 @@ public class electionService {
 	@Path("/deletequestion/{kysymys_id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void deleteFish(@PathParam("kysymys_id") int kysymys_id, @FormParam("kysymys") String kysymys) {
+	public void deleteFish(@PathParam("kysymys_id") int kysymys_id) {
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
 		Kysymykset k=em.find(Kysymykset.class, kysymys_id);
@@ -100,7 +100,7 @@ public class electionService {
 	@Path("/readtoupdatequestion/{kysymys_id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void readToUpdateKysymykset(@PathParam("kysymys_id") int kysymys_id, @FormParam("kysymys") String kysymys) {
+	public void readToUpdateKysymykset(@PathParam("kysymys_id") int kysymys_id) {
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
 		Kysymykset k=em.find(Kysymykset.class, kysymys_id);
