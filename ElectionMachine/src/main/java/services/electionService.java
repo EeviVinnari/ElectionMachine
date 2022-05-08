@@ -94,8 +94,8 @@ public class electionService {
 		//Calling the method readFish() of this service
 		readKysymykset();		
 	}	
-	@DELETE
-	@Path("/deletequestion/{kysymys_id}")
+	@GET
+	@Path("/delete/{kysymys_id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void deleteFish(@PathParam("kysymys_id") int kysymys_id) {
