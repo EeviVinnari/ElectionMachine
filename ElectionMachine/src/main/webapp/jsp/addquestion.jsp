@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="/rest/electionservice/readquestion" method="post">
+<form action="/rest/electionservice/addquestion" method="post">
 Lisää uusi kysymys: <input type='text' name='kysymys' value=''>
 <input type='submit' name='ok' value='Send'>
 </form>
