@@ -94,21 +94,21 @@ public class electionService {
 		//Calling the method readFish() of this service
 		readKysymykset();		
 	}	
+
 	@GET
-	@Path("/delete/{kysymys_id}")
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_JSON)
-	public void deleteFish(@PathParam("kysymys_id") int kysymys_id) {
-		EntityManager em=emf.createEntityManager();
-		em.getTransaction().begin();
-		Kysymykset k=em.find(Kysymykset.class, kysymys_id);
-		if (k!=null) {
-			em.remove(k);//The actual insertion line
-		}
-		em.getTransaction().commit();
-		//Calling the method readFish() of this service
-		readKysymykset();		
-	}	
+    @Path("/deleteanswers/{kysymys_id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public void deleteAnswers(@PathParam("kysymys_id") int id) { 
+        EntityManager em=emf.createEntityManager();
+        em.getTransaction().begin();
+        Kysymykset a=em.find(Kysymykset.class, id);
+        if (a!=null) {
+            em.remove(a);//The actual insertion line
+        }
+        em.getTransaction().commit();
+        //Calling the method readAnswers() of this service
+
+        }
 	@GET
 	@Path("/readtoupdatequestion/{kysymys_id}")
 	@Produces(MediaType.APPLICATION_JSON)
