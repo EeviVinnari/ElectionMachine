@@ -8,9 +8,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action='../readtoupdatequestion/{kysymys_id}' method='post'> </form>
+<form action='/rest/electionservice/updatequestion' method='post'> 
+Muokkaa kysymys ID: <input type='text' name='kysymys ID' value='${requestScope.kysymys_id}'>
+Muokkaa kysymystä: <input type='text' name='kysymys' value='${requestScope.kysymys}'>
+</form>
 <c:forEach var="kysymykset" items="${requestScope.updatedquestionlist }">
-	<li>${kysymykset}  
+	
 </c:forEach>
 </body>
 </html>

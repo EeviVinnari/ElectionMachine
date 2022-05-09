@@ -6,6 +6,37 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	body{
+		background-color: #B0C4DE;
+	}
+    footer{
+    	text-align: center;
+    	position: static;
+    	background-color: white;
+    	bottom: 0%;
+    	width: 100%;
+    	padding: 10px;
+    }
+    header{
+    	text-align: center;
+    	position: static;
+    	background-color: white;
+    	bottom: 0%;
+    	width: 100%;
+    	padding: 3px;
+    }
+    h4 {
+		font-family: "Times New Roman", Times, serif;
+		font-size: 20px;
+	}
+	header img {
+        width: 100px;
+        position: absolute;
+        left: 22.5px;
+        top: 2.5px;
+	}
+</style>
 </head>
 <body>
 <form action='../addquestion' method='post'>

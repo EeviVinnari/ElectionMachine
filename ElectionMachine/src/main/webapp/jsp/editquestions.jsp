@@ -8,9 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action='../updatequestion' method='post'>
-<input type='text' name='breed' value=''>
-<input type='text' name='weight' value=''>
+<form action='/rest/electionservice/editquestions' method='post'>
+Muokkaa kysymys ID: <input type='text' name='kysymykset' value='${requestScope.kysymys}'>
+Muokkaa kysymystä: <input type='text' name='kysymykset' value='${requestScope.kysymys}'>
 <input type='submit' name='ok' value='OK'>
 </form>
 
