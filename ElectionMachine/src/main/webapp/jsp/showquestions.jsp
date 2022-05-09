@@ -46,10 +46,12 @@
 		<img src="https://www.pngrepo.com/png/369105/512/arrow-left-small.png"></a>
 	</header>
 	</br>
-<form action='../readquestion' method='post'>
+<form action='rest/electionservice/readquestion' method='post'>
+<section class="questions">
 <c:forEach var="kysymykset" items="${requestScope.questionlist }">
-	<li>${kysymykset} <a href='../delete?kysymys_id=${kysymykset.kysymys_id}'>Poista</a> <a href='../readtoupdatequestion?kysymys_id=${kysymykset.kysymys_id}'>Muokkaa</a>
+	<li>${kysymykset} <a href='http://localhost:8080/rest/electionservice/delete/${kysymykset.kysymys_id}' onclick="return window.confirm('Haluatko varmasti poistaa?');">Poista</a></a> <a href='/rest/electionservice/readtoupdatequestion?kysymys_id=${kysymykset.kysymys_id}'>Update</a>
 </c:forEach>
+</section>
 
 	</br>
 		</br>
@@ -58,12 +60,7 @@
 	<h4>Sofian ja Eevin vaalikone</h4>
     </footer>
 
-<form action='rest/electionservice/readquestion' method='post'>
-<section class="questions">
-<c:forEach var="kysymykset" items="${requestScope.questionlist }">
-	<li>${kysymykset} <a href='http://localhost:8080/rest/electionservice/delete/${kysymykset.kysymys_id}' onclick="return window.confirm('Haluatko varmasti poistaa?');">Poista</a></a> <a href='/rest/electionservice/readtoupdatequestion?kysymys_id=${kysymykset.kysymys_id}'>Update</a>
-</c:forEach>
-</section>
+
 
 </body>
 </html>
