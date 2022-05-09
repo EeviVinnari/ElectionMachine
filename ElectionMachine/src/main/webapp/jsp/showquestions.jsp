@@ -49,7 +49,7 @@
 <form action='rest/electionservice/readquestion' method='post'>
 <section class="questions">
 <c:forEach var="kysymykset" items="${requestScope.questionlist }">
-	<li>${kysymykset} <a href='http://localhost:8080/rest/electionservice/delete/${kysymykset.kysymys_id}' onclick="return window.confirm('Haluatko varmasti poistaa?');">Poista</a></a> <a href='/rest/electionservice/readtoupdatequestion?kysymys_id=${kysymykset.kysymys_id}'>Update</a>
+	<li>${kysymykset} <a href='http://localhost:8080/rest/electionservice/delete/${kysymykset.kysymys_id}' onclick="return window.confirm('Haluatko varmasti poistaa?');">Poista</a></a> <a href='/rest/electionservice/readtoupdatequestion/${kysymykset.kysymys_id}'>Update</a>
 </c:forEach>
 </section>
 

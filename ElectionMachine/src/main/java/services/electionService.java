@@ -96,7 +96,7 @@ public class electionService {
 	}	
 
 	@GET
-    @Path("/deleteanswers/{kysymys_id}")
+    @Path("/delete/{kysymys_id}")
     @Produces(MediaType.APPLICATION_JSON)
     public void deleteAnswers(@PathParam("kysymys_id") int id) { 
         EntityManager em=emf.createEntityManager();
@@ -107,7 +107,7 @@ public class electionService {
         }
         em.getTransaction().commit();
         //Calling the method readAnswers() of this service
-
+        readKysymykset();
         }
 	@GET
 	@Path("/readtoupdatequestion/{kysymys_id}")
