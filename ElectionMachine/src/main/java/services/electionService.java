@@ -70,8 +70,8 @@ public class electionService {
 	@Path("/updatequestion")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes("application/x-www-form-urlencoded")
-	public void updateKysymykset(@FormParam("kysymys") String kysymys, @FormParam("kysymys_id") int kysymys_id) {  
-		Kysymykset k=new Kysymykset(kysymys, kysymys_id);
+	public void updateKysymykset(@FormParam("kysymys") String kysymys) {  
+		Kysymykset k=new Kysymykset(kysymys);
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
 		em.merge(k);//The actual insertion line
@@ -101,9 +101,9 @@ public class electionService {
     public void deleteAnswers(@PathParam("kysymys_id") int id) { 
         EntityManager em=emf.createEntityManager();
         em.getTransaction().begin();
-        Kysymykset a=em.find(Kysymykset.class, id);
-        if (a!=null) {
-            em.remove(a);//The actual insertion line
+        Kysymykset k=em.find(Kysymykset.class, id);
+        if (k!=null) {
+            em.remove(k);//The actual insertion line
         }
         em.getTransaction().commit();
         //Calling the method readAnswers() of this service

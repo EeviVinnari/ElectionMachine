@@ -39,15 +39,9 @@
 </style>
 </head>
 <body>
-<form action='../addquestion' method='post'>
-<input type='text' name='breed' value=''>
-<input type='text' name='weight' value=''>
-<input type='submit' name='ok' value='OK'>
+<form action='/rest/electionservice/addquestion' method='post'>
+Kysymys: <input id='kysymys' type='text' name='kysymys' value=''>
+<input type='submit' name='ok' value='Send'>
 </form>
-<ol>
-<c:forEach var="kysymykset" items="${requestScope.kysymyksetlist }">
-	<li>${kysymykset} <a href='../delete?kysymys_id=${kysymykset.kysymys_id}'>Delete</a> <a href='../readtoupdatequestion?kysymys_id=${kysymykset.kysymys_id}'>Update</a>
-</c:forEach>
-</ol>
 </body>
 </html>

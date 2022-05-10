@@ -9,8 +9,8 @@
 </head>
 <body>
 <form action='/rest/electionservice/updatequestion' method='post'> 
-Muokkaa kysymys ID: <input type='text' name='kysymys ID' value='${requestScope.kysymys_id}'>
-Muokkaa kysymystä: <input type='text' name='kysymys' value='${requestScope.kysymys}'>
+Muokkaa kysymys ID: <input type='text' name='kysymys ID' value='${requestScope.kysymykset.kysymys_id}'>
+Muokkaa kysymystä: <input type='text' name='kysymys' value='${requestScope.kysymykset.kysymys}'>
 </form>
 <c:forEach var="kysymykset" items="${requestScope.updatedquestionlist }">
 	
