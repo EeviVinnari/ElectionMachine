@@ -9,8 +9,7 @@
 </head>
 <body>
 <form action='/rest/electionservice/editquestions' method='post'>
-Muokkaa kysymys ID: <input type='text' name='kysymykset' value='${requestScope.kysymys}'>
-Muokkaa kysymystä: <input type='text' name='kysymykset' value='${requestScope.kysymys}'>
+Muokkaa kysymystä: <input type='text' name='kysymys' value='${requestScope.kysymys}'>
 <input type='submit' name='ok' value='OK'>
 </form>
 

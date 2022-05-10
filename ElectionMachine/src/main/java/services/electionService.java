@@ -67,7 +67,7 @@ public class electionService {
 		readKysymykset();		
 	}	
 	@POST
-	@Path("/updatequestion")
+	@Path("/updatequestions")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes("application/x-www-form-urlencoded")
 	public void updateKysymykset(@FormParam("kysymys") String kysymys) {  
@@ -79,7 +79,7 @@ public class electionService {
 		//Calling the method readKysymykset() of this service
 		readKysymykset();		
 	}	
-	@PUT
+	@POST
 	@Path("/editquestions")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -91,7 +91,7 @@ public class electionService {
 			em.merge(kysymykset);//The actual update line
 		}
 		em.getTransaction().commit();
-		//Calling the method readFish() of this service
+		//Calling the method readKysymykset() of this service
 		readKysymykset();		
 	}	
 
