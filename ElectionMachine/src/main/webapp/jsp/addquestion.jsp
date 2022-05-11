@@ -39,11 +39,19 @@
 </style>
 </head>
 <body>
-
+<header>
+	<h1>ADMIN - Lisää uusi kysymys</h1>
+	<a href="/jsp/html/AdminPage.jsp">
+	<img src="https://www.pngrepo.com/png/369105/512/arrow-left-small.png"></a>
+</header>
+<br>
 <form action='/rest/electionservice/addquestion' method='post'>
 Kysymys: <input id='kysymys' type='text' name='kysymys' value=''>
 <input type='submit' name='ok' value='Send'>
 </form>
-
+<br>	
+<footer>
+	<h4>Sofian ja Eevin vaalikone</h4>
+</footer>
 </body>
 </html>
