@@ -70,8 +70,9 @@ public class electionService {
 	@Path("/updatequestions")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes("application/x-www-form-urlencoded")
-	public void updateKysymykset(@FormParam("kysymys") String kysymys) {  
+	public void updateKysymykset(@FormParam("kysymys") String kysymys, @FormParam("kysymys_id") int kysymys_id) {  
 		Kysymykset k=new Kysymykset(kysymys);
+		k.setKysymys_id(kysymys_id);
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
 		em.merge(k);//The actual insertion line
@@ -110,16 +111,16 @@ public class electionService {
         readKysymykset();
         }
 	@GET
-	@Path("/readtoupdatequestion/{kysymys_id}")
+	@Path("/readtoupdatequestion/{tadaa}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void readToUpdateKysymykset(@PathParam("kysymys_id") int kysymys_id) {
+	public void readToUpdateKysymykset(@PathParam("tadaa") int kysymys_id) {
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
 		Kysymykset k=em.find(Kysymykset.class, kysymys_id);
 		em.getTransaction().commit();
 		RequestDispatcher rd=request.getRequestDispatcher("/jsp/showupdatedquestions.jsp");
-		request.setAttribute("updatedquestionlist", k);
+		request.setAttribute("updatedquestion", k);
 		try {
 			rd.forward(request, response);
 		} catch (ServletException | IOException e) {

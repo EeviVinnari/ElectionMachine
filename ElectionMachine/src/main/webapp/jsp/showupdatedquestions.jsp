@@ -8,12 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action='/rest/electionservice/updatequestion' method='post'> 
-Muokkaa kysymys ID: <input type='text' name='kysymys ID' value='${requestScope.kysymykset.kysymys_id}'>
-Muokkaa kysymystä: <input type='text' name='kysymys' value='${requestScope.kysymykset.kysymys}'>
+<form action='/rest/electionservice/updatequestions' method='post'> 
+Muokkaa kysymys ID: <input type='text' name='kysymys_id' value='${requestScope.updatedquestion.kysymys_id}'> <br>
+Muokkaa kysymystä: <input type='text' name='kysymys' value='${requestScope.updatedquestion.kysymys}'> <br>
+<input type='submit' name='ok' value='ok'>
 </form>
-<c:forEach var="kysymykset" items="${requestScope.updatedquestionlist }">
-	
-</c:forEach>
 </body>
 </html>
