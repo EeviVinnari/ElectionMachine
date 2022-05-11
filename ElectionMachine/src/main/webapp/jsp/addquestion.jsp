@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Lisää</title>
 <style>
 	body{
 		background-color: #B0C4DE;
-	}
+		}
     footer{
     	text-align: center;
     	position: static;
@@ -17,7 +17,7 @@
     	bottom: 0%;
     	width: 100%;
     	padding: 10px;
-    }
+    	}
     header{
     	text-align: center;
     	position: static;
@@ -25,23 +25,25 @@
     	bottom: 0%;
     	width: 100%;
     	padding: 3px;
-    }
-    h4 {
+    	}
+    h4{
 		font-family: "Times New Roman", Times, serif;
 		font-size: 20px;
-	}
-	header img {
+		}
+	header img{
         width: 100px;
         position: absolute;
         left: 22.5px;
         top: 2.5px;
-	}
+		}
 </style>
 </head>
 <body>
+
 <form action='/rest/electionservice/addquestion' method='post'>
 Kysymys: <input id='kysymys' type='text' name='kysymys' value=''>
 <input type='submit' name='ok' value='Send'>
 </form>
+
 </body>
 </html>

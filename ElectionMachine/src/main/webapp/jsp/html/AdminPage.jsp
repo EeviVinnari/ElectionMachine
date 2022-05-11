@@ -29,7 +29,7 @@
   		max-width: 500px;
   		margin: auto;
 	}
-    a {
+    a{
   		background-color: #4682b4;
   		color: white;
  		padding: 20px;
@@ -38,17 +38,17 @@
  		display: inline;
  		font-family: "Times New Roman", Times, serif;
 	}
-	a:hover {
+	a:hover{
   		background-color: #555;
 	}
-	a:active {
+	a:active{
   		background-color: black;
 	}
-	p {
+	p{
 		text-align: center;
 		font-size: 20px;
 	}
-	h4 {
+	h4{
 		font-family: "Times New Roman", Times, serif;
 		font-size: 20px;
 	}
@@ -59,61 +59,52 @@
 
 </style>
     
-<title>Admin sivu</title>
+<title>Admin-sivu</title>
 </head>
 
 <body>
-  <header>
-  <h1>Vaalikone - ADMIN </h1>
-  </header>
-
+<header>
+	<h1>Vaalikone - ADMIN </h1>
+</header>
 </br>
-
-<p>Ehdokkaiden hallinta</p>
-
+	<p>Ehdokkaiden hallinta</p>
 	<table class="blue">
-
 	<tr>
     <br>
         <td><a href='/addform.html'>Uusi</a></td>
         <!-- '/jsp/html/addcandidate.jsp' -->
         <td><a href='/updatecandidate'>Muokkaa</a></td>
         <td><a href="/updatecandidate">Poista</a></td>
-
-      </tr>
+    </tr>
     </table>
-    </br>
+    <br>
     
     <p>Kysymysten hallinta</p>
-    	<table class="blue">
-
+    <table class="blue">
 	<tr>
-    <br>
+    
         <td><a href='/jsp/addquestion.jsp'>Uusi</a></td>
         <td><a href='/rest/electionservice/readquestion'>Muokkaa</a></td>
     	<td><a href='/rest/electionservice/readquestion'>Poista</a></td>
-
-      </tr>
+	</tr>
     </table>
-	</br>
-
-
+	<br>
+	<br>
     <table class="green">
     <tr>
-	</br></br>
  		<td><a href='/logoutservlet'>Kirjaudu ulos</a></td>
- 
-    </tr>
+ 	</tr>
     </table>
- 	</br>
- 	</br>
-	</br>
-	</br>
+    
+ 	<br>
+ 	<br>
+	<br>
+	<br>
 
-    <footer>
-    	<h4>Sofian ja Eevin vaalikone</h4>
-     	<td><a href='/logintesti'>Tarkista</a></td>
-    </footer>
+<footer>
+	<h4>Sofian ja Eevin vaalikone</h4>
+    <td><a href='/logintesti'>Tarkista</a></td>
+</footer>
     
 </body>
 </html>
