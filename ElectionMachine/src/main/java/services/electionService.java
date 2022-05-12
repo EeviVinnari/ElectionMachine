@@ -112,7 +112,7 @@ public class electionService { //signature of the class
 		try {
 			rd.forward(request, response);
 		} catch (ServletException | IOException e) {
-			// TODO Auto-generated catch block
+			// TODO Auto-generated catch block jee
 			e.printStackTrace();
 		} 
 	}	
