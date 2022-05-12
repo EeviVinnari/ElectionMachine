@@ -46,7 +46,7 @@
 	<img src="https://www.pngrepo.com/png/369105/512/arrow-left-small.png"></a>
 </header>
 <br>
-<form action='/rest/electionservice/updatequestions' method='post'> <!-- shows where the information of this form is forwarded -->
+<form action='/rest/electionservice/updatequestions' method='post'> <!-- 'action' shows where the information of this form is forwarded -->
 <!-- requestScope receives the information coming from the method. Updatedquestion is the attribute from the requestDispatcher and the kysymys_id is attribute from the Kysymykset model -->
 Muokkaa kysymys ID: <input type='text' name='kysymys_id' value='${requestScope.updatedquestion.kysymys_id}'> <br>
 Muokkaa kysymystä: <input type='text' name='kysymys' value='${requestScope.updatedquestion.kysymys}'> <br>
