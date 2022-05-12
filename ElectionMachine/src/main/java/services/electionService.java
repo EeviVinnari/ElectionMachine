@@ -25,9 +25,9 @@ import javax.ws.rs.core.MediaType;
 
 import app.model.Kysymykset;
 
-@Path("/electionservice") //path to this service's Root Resource class 
+@Path("/electionservice")
 public class electionService {
-	EntityManagerFactory emf=Persistence.createEntityManagerFactory("vaalikone"); //create connection with database. persistence.xml file for settings
+	EntityManagerFactory emf=Persistence.createEntityManagerFactory("vaalikone");
 	@Context
 	HttpServletRequest request;
 	
@@ -35,39 +35,37 @@ public class electionService {
 	HttpServletResponse response;
 	
 	
-	@GET //receives GET-type requests only
-	@Path("/readquestion") //path to this method
-	@Produces(MediaType.APPLICATION_JSON) //defines what media type method produces
-	@Consumes(MediaType.APPLICATION_JSON) //defines what media type method accepts
+	@GET
+	@Path("/readquestion")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
 	public void readKysymykset() {
-		EntityManager em=emf.createEntityManager(); //creates EntityManager which manages entities given in persistence.xml
-		em.getTransaction().begin(); //starts the transaction
-		List<Kysymykset> list=em.createQuery("select xyx from Kysymykset xyx").getResultList();	//creates list Kysymykset and creates query that fetches kysymykset as a list from DATABASE?	
-		em.getTransaction().commit(); //closes the transaction
-		RequestDispatcher rd=request.getRequestDispatcher("/jsp/showquestions.jsp"); //creates a requestDispatcher rd, and shows where it should be forwarded
-		request.setAttribute("questionlist", list); //adds attribute to request to take to showquestions.jsp
-		try { //tries to forward the request with the attribute and catches an exception if it doesn't go through
+		EntityManager em=emf.createEntityManager();
+		em.getTransaction().begin();
+		List<Kysymykset> list=em.createQuery("select xyx from Kysymykset xyx").getResultList();		
+		em.getTransaction().commit();
+		RequestDispatcher rd=request.getRequestDispatcher("/jsp/showquestions.jsp");
+		request.setAttribute("questionlist", list);
+		try {
 			rd.forward(request, response);
 		} catch (ServletException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-	
-	@POST //receives POST-type requests only
+	}	
+	@POST
 	@Path("/addquestion")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes("application/x-www-form-urlencoded")
-	public void addKysymykset(@FormParam("kysymys") String kysymys) {  //we are using FormParam because we receive info from html form
-		Kysymykset k=new Kysymykset(kysymys); 
+	public void addKysymykset(@FormParam("kysymys") String kysymys) {  
+		Kysymykset k=new Kysymykset(kysymys);
 		EntityManager em=emf.createEntityManager();
 		em.getTransaction().begin();
 		em.persist(k);//The actual insertion line
 		em.getTransaction().commit();
 		//Calling the method readKysymykset() of this service
-		readKysymykset(); //reads the method readKysymykset which shows the questions as a list, so in this case after adding the new question, it is shown in the question list
-	}
-	
+		readKysymykset();		
+	}	
 	@POST
 	@Path("/updatequestions")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -82,22 +80,36 @@ public class electionService {
 		//Calling the method readKysymykset() of this service
 		readKysymykset();		
 	}	
+	@POST
+	@Path("/editquestions")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void updateKysymykset(Kysymykset kysymykset) {
+		EntityManager em=emf.createEntityManager();
+		em.getTransaction().begin();
+		Kysymykset k=em.find(Kysymykset.class, kysymykset.getKysymys_id());
+		if (k!=null) {
+			em.merge(kysymykset);//The actual update line
+		}
+		em.getTransaction().commit();
+		//Calling the method readKysymykset() of this service
+		readKysymykset();		
+	}	
 
 	@GET
     @Path("/delete/{kysymys_id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public void deleteAnswers(@PathParam("kysymys_id") int id) { //using PathParam because in the Path line there is an attribute that we need to
+    public void deleteAnswers(@PathParam("kysymys_id") int id) { 
         EntityManager em=emf.createEntityManager();
         em.getTransaction().begin();
         Kysymykset k=em.find(Kysymykset.class, id);
-        if (k!=null) { //if k (kysymykset) is not null, meaning that there is information, it is being deleted
+        if (k!=null) {
             em.remove(k);//The actual insertion line
         }
         em.getTransaction().commit();
         //Calling the method readAnswers() of this service
         readKysymykset();
-    }
-	
+        }
 	@GET
 	@Path("/readtoupdatequestion/{tadaa}")
 	@Produces(MediaType.APPLICATION_JSON)

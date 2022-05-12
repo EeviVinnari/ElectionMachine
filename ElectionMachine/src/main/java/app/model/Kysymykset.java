@@ -17,6 +17,7 @@ public class Kysymykset implements Serializable{
 	public Kysymykset() {
 		super();
 	}
+	
 	public Kysymykset(String kysymys, int kysymys_id) {
 		super();
 		this.kysymys = kysymys;
@@ -26,6 +27,8 @@ public class Kysymykset implements Serializable{
 		super();
 		this.kysymys = kysymys;
 	}
+
+
 	public int getKysymys_id() {
 		return kysymys_id;
 	}
